@@ -2,3 +2,6 @@
 Library
 Logs
 *.csproj
+obj
+Temp
+.idea/.idea.Tower Defense/.idea
