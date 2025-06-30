@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "TowerData",fileName = "TowerData")]
+[CreateAssetMenu(menuName = "TowerData",fileName = "TowerDefense/TowerData")]
 public class TowerData : ScriptableObject
 {
     [SerializeField] private List<TowerLevelData> towers = new  List<TowerLevelData>();
