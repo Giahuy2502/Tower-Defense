@@ -1,11 +1,12 @@
+using System;
 using _Asset.Scripts.MyAsset;
 using UnityEngine;
 using UnityEngine.AI;
-
+[RequireComponent(typeof(NavMeshAgent)), RequireComponent(typeof(HealthMonster))]
 public class BaseMonster : MonoBehaviour
 {
     [Header("Stats")]
-    [SerializeField] protected float hp = 100f; 
+    [SerializeField] protected HealthMonster healthMonster; 
     [SerializeField] protected float speed = 1f;
     [SerializeField] protected float despawnDelay = 5f; // Thêm config cho delay
     [SerializeField] private Transform targetPos;
@@ -17,7 +18,7 @@ public class BaseMonster : MonoBehaviour
     protected MapManager mapManager => MapManager.instance;
 
     public MonsterState CurrentState => currentState;
-    public float CurrentHp => hp;
+    
     public Transform TargetPos
     {
         get => targetPos;
@@ -29,6 +30,11 @@ public class BaseMonster : MonoBehaviour
         animator = GetComponent<Animator>();
         target = mapManager.EndPos;
         agent.speed = speed;
+    }
+
+    public void OnEnable()
+    {
+        healthMonster = GetComponent<HealthMonster>();
     }
 
     protected virtual void Update()
@@ -63,13 +69,13 @@ public class BaseMonster : MonoBehaviour
     {
         if (currentState == MonsterState.Die) return;
         
-        hp -= damage;
+        healthMonster.TakeDamage(damage);
         CheckCurrentHp();
     }
 
     protected virtual void CheckCurrentHp()
     {
-        if (hp <= 0)
+        if (healthMonster.IsDead())
         {
             Die();
         }
