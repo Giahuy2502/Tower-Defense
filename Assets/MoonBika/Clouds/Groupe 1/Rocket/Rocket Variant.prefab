@@ -12,6 +12,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1542261554079779657, guid: 758c94e185ef5d94ea7c45afb1c5109d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
+    - target: {fileID: 3672879188682003441, guid: 758c94e185ef5d94ea7c45afb1c5109d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
+    - target: {fileID: 5551812902716627183, guid: 758c94e185ef5d94ea7c45afb1c5109d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     - target: {fileID: 6228400049950306862, guid: 758c94e185ef5d94ea7c45afb1c5109d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -52,6 +64,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6470582331030038208, guid: 758c94e185ef5d94ea7c45afb1c5109d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
