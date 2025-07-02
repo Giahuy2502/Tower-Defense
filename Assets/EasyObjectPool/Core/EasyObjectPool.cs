@@ -17,98 +17,98 @@ namespace MarchingBytes {
 		public bool fixedSize;
 	}
 
-	class Pool {
-		private Stack<PoolObject> availableObjStack = new Stack<PoolObject>();
+public class Pool
+{
+    private Stack<PoolObject> availableObjStack = new Stack<PoolObject>();
+    private GameObject poolObjectPrefab;
+    private string poolName;
+    private bool fixedSize;
+    private int poolSize;
 
-		private bool fixedSize;
-		private GameObject poolObjectPrefab;
-		private int poolSize;
-		private string poolName;
+    private EasyObjectPool owner;
 
-		public Pool(string poolName, GameObject poolObjectPrefab, int initialCount, bool fixedSize) {
-			this.poolName = poolName;
-			this.poolObjectPrefab = poolObjectPrefab;
-			this.poolSize = initialCount;
-			this.fixedSize = fixedSize;
-			//populate the pool
-			for(int index = 0; index < initialCount; index++) {
-				AddObjectToPool(NewObjectInstance());
-			}
-		}
+    public Pool(string poolName, GameObject poolObjectPrefab, int initialCount, bool fixedSize, EasyObjectPool owner)
+    {
+        this.poolName = poolName;
+        this.poolObjectPrefab = poolObjectPrefab;
+        this.poolSize = initialCount;
+        this.fixedSize = fixedSize;
+        this.owner = owner;
 
-		//o(1)
-		private void AddObjectToPool(PoolObject po) {
-			//add to pool
-			po.gameObject.SetActive(false);
-			availableObjStack.Push(po);
-			po.isPooled = true;
-		}
-		
-		private PoolObject NewObjectInstance() {
-			GameObject go = (GameObject)GameObject.Instantiate(poolObjectPrefab);
-			PoolObject po = go.GetComponent<PoolObject>();
-			if(po == null) {
-				po = go.AddComponent<PoolObject>();
-			}
-			//set name
-			po.poolName = poolName;
-			return po;
-		}
+        for (int i = 0; i < initialCount; i++)
+        {
+            AddObjectToPool(NewObjectInstance());
+        }
+    }
 
-		//o(1)
-		public GameObject NextAvailableObject(Vector3 position, Quaternion rotation) {
-			PoolObject po = null;
-			if(availableObjStack.Count > 0) {
-				po = availableObjStack.Pop();
-			} else if(fixedSize == false) {
-				//increment size var, this is for info purpose only
-				poolSize++;
-				Debug.Log(string.Format("Growing pool {0}. New size: {1}",poolName,poolSize));
-				//create new object
-				po = NewObjectInstance();
-			} else {
-				Debug.LogWarning("No object available & cannot grow pool: " + poolName);
-			}
-			
-			GameObject result = null;
-			if(po != null) {
-				po.isPooled = false;
-				result = po.gameObject;
-				result.SetActive(true);
-				
-				result.transform.position = position;
-				result.transform.rotation = rotation;
-			}
-			
-			return result;
-		} 
-		
-		//o(1)
-		public void ReturnObjectToPool(PoolObject po) {
-			
-			if(poolName.Equals(po.poolName)) {
-				
-				/* we could have used availableObjStack.Contains(po) to check if this object is in pool.
-				 * While that would have been more robust, it would have made this method O(n) 
-				 */
-				if(po.isPooled) {
-					Debug.LogWarning(po.gameObject.name + " is already in pool. Why are you trying to return it again? Check usage.");	
-				} else {
-					AddObjectToPool(po);
-				}
-				
-			} else {
-				Debug.LogError(string.Format("Trying to add object to incorrect pool {0} {1}",po.poolName,poolName));
-			}
-		}
-	}
+    private void AddObjectToPool(PoolObject po)
+    {
+        po.gameObject.SetActive(false);
+        availableObjStack.Push(po);
+        po.isPooled = true;
+    }
+
+    private PoolObject NewObjectInstance()
+    {
+        GameObject go = GameObject.Instantiate(poolObjectPrefab);
+        PoolObject po = go.GetComponent<PoolObject>();
+        if (po == null)
+        {
+            po = go.AddComponent<PoolObject>();
+        }
+        po.poolName = poolName;
+        return po;
+    }
+
+    public GameObject NextAvailableObject(Vector3 position, Quaternion rotation)
+    {
+        PoolObject po = null;
+        if (availableObjStack.Count > 0)
+        {
+            po = availableObjStack.Pop();
+        }
+        else if (!fixedSize)
+        {
+            poolSize++;
+            po = NewObjectInstance();
+        }
+        else
+        {
+            Debug.LogWarning("No available object in pool: " + poolName);
+            return null;
+        }
+
+        GameObject result = po.gameObject;
+        po.isPooled = false;
+        result.SetActive(true);
+        result.transform.position = position;
+        result.transform.rotation = rotation;
+
+        owner.OnSpawn(result); // Gọi hàm custom khi spawn
+
+        return result;
+    }
+
+    public void ReturnObjectToPool(PoolObject po)
+    {
+        if (po.isPooled)
+        {
+            Debug.LogWarning(po.gameObject.name + " is already in pool.");
+            return;
+        }
+
+        owner.OnReturn(po.gameObject); // Gọi hàm custom khi return
+
+        AddObjectToPool(po);
+    }
+}
 
 	/// <summary>
 	/// Easy object pool.
 	/// </summary>
 	public class EasyObjectPool : MonoBehaviour {
 
-		public static EasyObjectPool instance;
+		// public static EasyObjectPool instance;
 		[Header("Editing Pool Info value at runtime has no effect")]
 		public PoolInfo[] poolInfo;
 
@@ -118,7 +118,7 @@ namespace MarchingBytes {
 		// Use this for initialization
 		void Start () {
 			//set instance
-			instance = this;
+			//instance = this;
 			//check for duplicate names
 			CheckForDuplicatePoolNames();
 			//create pools
@@ -143,7 +143,7 @@ namespace MarchingBytes {
 			foreach (PoolInfo currentPoolInfo in poolInfo) {
 				
 				Pool pool = new Pool(currentPoolInfo.poolName, currentPoolInfo.prefab, 
-				                     currentPoolInfo.poolSize, currentPoolInfo.fixedSize);
+				                     currentPoolInfo.poolSize, currentPoolInfo.fixedSize,this);
 
 				
 				Debug.Log("Creating pool: " + currentPoolInfo.poolName);
@@ -188,5 +188,12 @@ namespace MarchingBytes {
 				}
 			}
 		}
+		// Cho phép custom khi spawn object
+		public virtual void OnSpawn(GameObject obj) { }
+
+		// Cho phép custom khi return object
+		public virtual void OnReturn(GameObject obj) { }
+		// lấy Data từ ScriptableObject
+		public virtual void GetData() { }
 	}
 }
