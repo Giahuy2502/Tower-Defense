@@ -4,5 +4,5 @@ namespace _Asset.Scripts.MyAsset
     public enum TowerType {Runeblast,}
     public enum MonsterType {Minion,}
     public enum MonsterState {Normal,Die,}
-    
+    public enum EventName{}
 }
