@@ -110,7 +110,7 @@ public class Pool
 
 		// public static EasyObjectPool instance;
 		[Header("Editing Pool Info value at runtime has no effect")]
-		public PoolInfo[] poolInfo;
+		public List<PoolInfo> poolInfo;
 
 		//mapping of pool name vs list
 		private Dictionary<string, Pool> poolDictionary  = new Dictionary<string, Pool>();
@@ -126,12 +126,12 @@ public class Pool
 		}
 		
 		private void CheckForDuplicatePoolNames() {
-			for (int index = 0; index < poolInfo.Length; index++) {
+			for (int index = 0; index < poolInfo.Count; index++) {
 				string poolName = poolInfo[index].poolName;
 				if(poolName.Length == 0) {
 					Debug.LogError(string.Format("Pool {0} does not have a name!",index));
 				}
-				for (int internalIndex = index + 1; internalIndex < poolInfo.Length; internalIndex++) {
+				for (int internalIndex = index + 1; internalIndex < poolInfo.Count; internalIndex++) {
 					if(poolName.Equals(poolInfo[internalIndex].poolName)) {
 						Debug.LogError(string.Format("Pool {0} & {1} have the same name. Assign different names.", index, internalIndex));
 					}

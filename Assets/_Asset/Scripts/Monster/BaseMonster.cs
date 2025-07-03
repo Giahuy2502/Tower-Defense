@@ -24,7 +24,7 @@ public class BaseMonster : MonoBehaviour
         get => targetPos;
         set => targetPos = value;
     }
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
@@ -34,18 +34,19 @@ public class BaseMonster : MonoBehaviour
 
     public void OnEnable()
     {
+        currentState = MonsterState.Normal;
         healthMonster = GetComponent<HealthMonster>();
+        agent.enabled = true;
+        agent.Warp(mapManager.StartPos.position);
+        if (target != null)
+        {
+            agent.SetDestination(target.position);
+        }
     }
 
     protected virtual void Update()
     {
         if(currentState == MonsterState.Die) return;
-        
-        if (target != null)
-        {
-            agent.SetDestination(target.position);
-        }
-
         if (IsOnTarget())
         {
             ReachTarget();
@@ -107,7 +108,7 @@ public class BaseMonster : MonoBehaviour
 
     protected virtual void Despawn()
     {
-        Destroy(gameObject);
+        MonsterPool.instance.ReturnObjectToPool(gameObject);
     }
     protected virtual void OnDeath()
     {

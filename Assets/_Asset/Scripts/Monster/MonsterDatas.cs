@@ -12,9 +12,10 @@ public class MonsterDatas : ScriptableObject
 [System.Serializable]
 public class MonsterData
 {
-    [SerializeField] private string monsterName;
-    [SerializeField] private float monsterHealth;
-    [SerializeField] private float monsterDamage;
-    [SerializeField] private float monsterSpeed;
-    [SerializeField] private GameObject monsterPrefab;
+    [SerializeField] public string monsterName;
+    [SerializeField] public float monsterHealth;
+    [SerializeField] public float monsterDamage;
+    [SerializeField] public float monsterSpeed;
+    [SerializeField] public GameObject monsterPrefab;
+    
 }

@@ -2552,7 +2552,7 @@ MonoBehaviour:
   despawnDelay: 5
   targetPos: {fileID: 3715654356893128121}
   target: {fileID: 0}
-  agent: {fileID: 0}
+  agent: {fileID: 3131885489821801081}
 --- !u!54 &-5253559364605048393
 Rigidbody:
   m_ObjectHideFlags: 0

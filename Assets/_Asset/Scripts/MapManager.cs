@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using _Asset.Scripts.MyAsset;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -70,7 +71,8 @@ public class MapManager : MonoBehaviour
 
     private void SpawnMonsters()
     {
-        var newMonster = Instantiate(monsterPrefabs[Random.Range(0, monsterPrefabs.Count)], startPos.position, Quaternion.identity);
+        var newMonster = MonsterPool.instance.GetObjectFromPool(MonsterType.Minion,startPos.position, Quaternion.identity);
+        // var newMonster = Instantiate(monsterPrefabs[Random.Range(0, monsterPrefabs.Count)], startPos.position, Quaternion.identity);
         activeMonsters.Add(newMonster);
         monsterCount++;
     }
