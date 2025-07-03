@@ -19,11 +19,6 @@ public class BaseBullet : MonoBehaviour
         get => damage;
         set => damage = value;
     }
-
-    public void Start()
-    {
-        Destroy(gameObject, bulletLifeTime);
-    }
     public void Update()
     {
         Move(targetMonster);
@@ -51,7 +46,7 @@ public class BaseBullet : MonoBehaviour
         {
             var monster = other.gameObject.GetComponent<BaseMonster>();
             monster.TakeDamage(damage);
-            Destroy(this.gameObject);
+            BulletPool.instance.ReturnObjectToPool(gameObject);
         }
     }
     

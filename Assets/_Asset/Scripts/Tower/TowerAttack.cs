@@ -15,6 +15,7 @@ public class TowerAttack : MonoBehaviour
         get => damage;
         set => damage = value;
     }
+    
 
     public void StartAttack(GameObject targetMonster)
     {
@@ -37,7 +38,8 @@ public class TowerAttack : MonoBehaviour
 
     private void AttackMonster(GameObject targetMonster)
     {
-        var newBullet = Instantiate(bulletPrefab, barrel.transform.position, Quaternion.identity);
+        // var newBullet = Instantiate(bulletPrefab, barrel.transform.position, Quaternion.identity);
+        var newBullet = BulletPool.instance.GetObjectFromPool(TowerType.Runeblast, barrel.transform.position, barrel.transform.rotation);
         newBullet.transform.rotation = barrel.transform.rotation;
         var bullet = newBullet.GetComponent<BaseBullet>();
         bullet.Damage = this.damage;
