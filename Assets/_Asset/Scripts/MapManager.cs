@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class MapManager : MonoBehaviour
 {
     public static MapManager instance;
-    [Header("Game Stats")]
+    [Header("Game Stats")] public int level;
     [SerializeField] private int monsterCount;
     [SerializeField] private int maxMonsterCount;
     [SerializeField] private List<GameObject> monsterPrefabs;
@@ -55,26 +55,5 @@ public class MapManager : MonoBehaviour
     void Start()
     {
         monsterCount = 0;
-        SpawnMonsters();
     }
-
-    
-    void Update()
-    {
-        if (activeMonsters.Count < maxMonsterCount)
-        {
-            Debug.Log($"monsterCount: {monsterCount} / maxMonsterCount: {maxMonsterCount}");
-            SpawnMonsters();
-        }
-        
-    }
-
-    private void SpawnMonsters()
-    {
-        var newMonster = MonsterPool.instance.GetObjectFromPool(MonsterType.Minion,startPos.position, Quaternion.identity);
-        // var newMonster = Instantiate(monsterPrefabs[Random.Range(0, monsterPrefabs.Count)], startPos.position, Quaternion.identity);
-        activeMonsters.Add(newMonster);
-        monsterCount++;
-    }
-    
 }

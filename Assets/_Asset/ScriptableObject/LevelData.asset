@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdd625ab2b74b0e49b14cbf3c88295bb, type: 3}
+  m_Name: LevelData
+  m_EditorClassIdentifier: 
+  levels:
+  - level: 1
+    waves:
+    - monsters:
+      - count: 5
+        monsterData:
+          monsterType: 0
+          monsterHealth: 100
+          monsterDamage: 0
+          monsterSpeed: 1
+          monsterPrefab: {fileID: 8597690155373931424, guid: 46f8a61549931754d9c4d78483abc57d, type: 3}
+      - count: 0
+        monsterData:
+          monsterType: 0
+          monsterHealth: 0
+          monsterDamage: 0
+          monsterSpeed: 0
+          monsterPrefab: {fileID: 0}
+      - count: 0
+        monsterData:
+          monsterType: 0
+          monsterHealth: 0
+          monsterDamage: 0
+          monsterSpeed: 0
+          monsterPrefab: {fileID: 0}
+      - count: 0
+        monsterData:
+          monsterType: 0
+          monsterHealth: 0
+          monsterDamage: 0
+          monsterSpeed: 0
+          monsterPrefab: {fileID: 0}
+    - monsters:
+      - count: 3
+        monsterData:
+          monsterType: 0
+          monsterHealth: 100
+          monsterDamage: 0
+          monsterSpeed: 1
+          monsterPrefab: {fileID: 8597690155373931424, guid: 46f8a61549931754d9c4d78483abc57d, type: 3}
+      - count: 0
+        monsterData:
+          monsterType: 0
+          monsterHealth: 0
+          monsterDamage: 0
+          monsterSpeed: 0
+          monsterPrefab: {fileID: 0}
+      - count: 0
+        monsterData:
+          monsterType: 0
+          monsterHealth: 0
+          monsterDamage: 0
+          monsterSpeed: 0
+          monsterPrefab: {fileID: 0}
+      - count: 0
+        monsterData:
+          monsterType: 0
+          monsterHealth: 0
+          monsterDamage: 0
+          monsterSpeed: 0
+          monsterPrefab: {fileID: 0}
+  - level: 1
+    waves:
+    - monsters:
+      - count: 0
+        monsterData:
+          monsterType: 0
+          monsterHealth: 0
+          monsterDamage: 0
+          monsterSpeed: 0
+          monsterPrefab: {fileID: 0}
+      - count: 0
+        monsterData:
+          monsterType: 0
+          monsterHealth: 0
+          monsterDamage: 0
+          monsterSpeed: 0
+          monsterPrefab: {fileID: 0}
+      - count: 0
+        monsterData:
+          monsterType: 0
+          monsterHealth: 0
+          monsterDamage: 0
+          monsterSpeed: 0
+          monsterPrefab: {fileID: 0}
+      - count: 0
+        monsterData:
+          monsterType: 0
+          monsterHealth: 0
+          monsterDamage: 0
+          monsterSpeed: 0
+          monsterPrefab: {fileID: 0}

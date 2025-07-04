@@ -11,6 +11,7 @@ public class MonsterPool : EasyObjectPool
     [SerializeField] private bool monsterFixedSize;
     public static new MonsterPool instance;
 
+    private MapManager mapManager => MapManager.instance;
     protected void Awake()
     {
         if (instance != null)
@@ -44,22 +45,13 @@ public class MonsterPool : EasyObjectPool
 
     public override void OnSpawn(GameObject obj)
     {
-        // Ví dụ: Khi enemy spawn, bật animation xuất hiện
-        // var enemy = obj.GetComponent<Enemy>();
-        // if (enemy != null)
-        // {
-        //     enemy.PlaySpawnEffect();
-        // }
+        mapManager.ActiveMonsters.Add(obj);
+        mapManager.MonsterCount++;
     }
 
     public override void OnReturn(GameObject obj)
     {
-       
-        // Ví dụ: Reset máu khi enemy được trả về
-        // var enemy = obj.GetComponent<Enemy>();
-        // if (enemy != null)
-        // {
-        //     enemy.ResetHealth();
-        // }
+        mapManager.ActiveMonsters.Remove(obj);
+        mapManager.MonsterCount--;
     }
 }
