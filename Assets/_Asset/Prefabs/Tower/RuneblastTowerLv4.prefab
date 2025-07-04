@@ -51,7 +51,7 @@ MonoBehaviour:
   towerName: 
   towerLevel: 4
   baseTowerHealth: 100
-  baseTowerDamage: 100
+  baseTowerDamage: 20
   rotateSpeed: 5
   barrel: {fileID: 7575103348462649617}
   towerAttack: {fileID: -6471389133562620731}
@@ -71,6 +71,7 @@ MonoBehaviour:
   barrel: {fileID: 7575103348462649617}
   bulletPrefab: {fileID: 1248053551054404107, guid: 2494b15331cc9734583a007be7471cb4, type: 3}
   timeBetweenBullets: 1
+  damage: 0
 --- !u!65 &3117885141643777610
 BoxCollider:
   m_ObjectHideFlags: 0
