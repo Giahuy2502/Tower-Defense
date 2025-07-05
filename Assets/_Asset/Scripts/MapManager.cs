@@ -56,4 +56,10 @@ public class MapManager : MonoBehaviour
     {
         monsterCount = 0;
     }
+
+    public void RemoveFromManager(GameObject monster)
+    {
+        monsterCount--;
+        ActiveMonsters.Remove(monster);
+    }
 }
