@@ -2454,7 +2454,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8501989262147729390}
   - component: {fileID: 7172884547981839447}
-  - component: {fileID: 3131885489821801081}
   - component: {fileID: -714277881111307694}
   - component: {fileID: -5253559364605048393}
   - component: {fileID: 201038266802186838}
@@ -2513,28 +2512,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!195 &3131885489821801081
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8597690155373931424}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 1
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!114 &-714277881111307694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2552,7 +2529,6 @@ MonoBehaviour:
   despawnDelay: 5
   targetPos: {fileID: 3715654356893128121}
   target: {fileID: 0}
-  agent: {fileID: 3131885489821801081}
 --- !u!54 &-5253559364605048393
 Rigidbody:
   m_ObjectHideFlags: 0
