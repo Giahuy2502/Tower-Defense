@@ -1,13 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using _Asset.Scripts.MyAsset;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MoveMonster : MonoBehaviour
 {
+    [FormerlySerializedAs("target")]
     [Header("AI Navigate")]
-    [SerializeField] protected Transform target;
+    [SerializeField] protected List<Vector3> wayTransforms;
     [SerializeField] private float moveSpeed;
     private Tween moveTween;
     protected MapManager mapManager => MapManager.instance;
@@ -20,7 +24,10 @@ public class MoveMonster : MonoBehaviour
 
     private void Awake()
     {
-        target = mapManager.EndPos;
+        foreach (var point in mapManager.Waypoints)
+        {
+            wayTransforms.Add(point.transform.position);
+        }
     }
 
     private void OnEnable()
@@ -30,7 +37,7 @@ public class MoveMonster : MonoBehaviour
             moveTween.Kill();
         }
         transform.position = mapManager.StartPos.position;
-        if (target != null)
+        if (wayTransforms != null)
         {
             Move();
         }
@@ -38,11 +45,11 @@ public class MoveMonster : MonoBehaviour
 
     public void Move()
     {
-        if (target == null) return;
+        if (wayTransforms == null) return;
 
-        Vector3[] waypoints = new Vector3[] { target.position };
-        
-        float distance = Vector3.Distance(transform.position, target.position);
+        Vector3[] waypoints = wayTransforms.ToArray();
+        var nextWay = mapManager.EndPos.position;
+        float distance = Vector3.Distance(transform.position, nextWay);
         float duration = distance / moveSpeed;
         moveTween = transform.DOPath(waypoints, duration, PathType.Linear, PathMode.Full3D)
             .SetEase(Ease.Linear)
@@ -64,6 +71,7 @@ public class MoveMonster : MonoBehaviour
     {
         mapManager.RemoveFromManager(gameObject);
         MonsterPool.instance.ReturnObjectToPool(gameObject);
+        Debug.Log("Monster reached target");
     }
    
 

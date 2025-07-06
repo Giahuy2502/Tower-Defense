@@ -16,7 +16,7 @@ public class MapManager : MonoBehaviour
     [Header("AI Navigation")]
     [SerializeField] private Transform startPos;
     [SerializeField] private Transform endPos;
-    
+    [SerializeField] private List<GameObject> waypoints;
 
     public Transform StartPos
     {
@@ -40,6 +40,12 @@ public class MapManager : MonoBehaviour
     {
         get => activeMonsters;
         set => activeMonsters = value;
+    }
+
+    public List<GameObject> Waypoints
+    {
+        get => waypoints;
+        set => waypoints = value;
     }
 
     private void Awake()

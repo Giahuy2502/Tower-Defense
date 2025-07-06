@@ -28,7 +28,7 @@ public class TowerAttack : MonoBehaviour
     private IEnumerator Attack(GameObject targetMonster)
     { 
         var monsterBase = targetMonster.GetComponent<BaseMonster>();
-        while (targetMonster != null && monsterBase.CurrentState != MonsterState.Die)
+        while (targetMonster != null && monsterBase.CurrentState != MonsterState.Die && targetMonster.activeSelf)
         {
             AttackMonster(targetMonster);
             yield return new WaitForSeconds(timeBetweenBullets);
