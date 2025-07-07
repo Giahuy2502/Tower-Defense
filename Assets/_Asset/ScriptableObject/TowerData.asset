@@ -13,31 +13,123 @@ MonoBehaviour:
   m_Name: TowerData
   m_EditorClassIdentifier: 
   towers:
-  - towerName: 
-    level: 1
-    damage: 0
-    range: 0
-    upgradeCost: 0
-    upgradeTime: 0
-    towerPrefab: {fileID: 3242401941149706617, guid: 2d773145c02c7fa4dab19d04461ce648, type: 3}
-  - towerName: 
-    level: 2
-    damage: 0
-    range: 0
-    upgradeCost: 0
-    upgradeTime: 0
-    towerPrefab: {fileID: 6263582222475886615, guid: 912f010f678c6114cb89ee1e2d444494, type: 3}
-  - towerName: 
-    level: 3
-    damage: 0
-    range: 0
-    upgradeCost: 0
-    upgradeTime: 0
-    towerPrefab: {fileID: 952400938208229317, guid: 0eadc67bf1c61c9498839be6803b3f3f, type: 3}
-  - towerName: 
-    level: 4
-    damage: 0
-    range: 0
-    upgradeCost: 0
-    upgradeTime: 0
-    towerPrefab: {fileID: 7291028237268089429, guid: 42507131c70becc4cacbb8d9f036f0b6, type: 3}
+  - towerType: 0
+    towers:
+    - towerName: 
+      level: 1
+      damage: 20
+      range: 0
+      upgradeCost: 0
+      upgradeTime: 0
+      towerPrefab: {fileID: 3242401941149706617, guid: 2d773145c02c7fa4dab19d04461ce648, type: 3}
+    - towerName: 
+      level: 2
+      damage: 20
+      range: 0
+      upgradeCost: 0
+      upgradeTime: 0
+      towerPrefab: {fileID: 6263582222475886615, guid: 912f010f678c6114cb89ee1e2d444494, type: 3}
+    - towerName: 
+      level: 3
+      damage: 20
+      range: 0
+      upgradeCost: 0
+      upgradeTime: 0
+      towerPrefab: {fileID: 952400938208229317, guid: 0eadc67bf1c61c9498839be6803b3f3f, type: 3}
+    - towerName: 
+      level: 4
+      damage: 20
+      range: 0
+      upgradeCost: 0
+      upgradeTime: 0
+      towerPrefab: {fileID: 7291028237268089429, guid: 42507131c70becc4cacbb8d9f036f0b6, type: 3}
+  - towerType: 1
+    towers:
+    - towerName: 
+      level: 0
+      damage: 0
+      range: 0
+      upgradeCost: 0
+      upgradeTime: 0
+      towerPrefab: {fileID: 0}
+    - towerName: 
+      level: 0
+      damage: 0
+      range: 0
+      upgradeCost: 0
+      upgradeTime: 0
+      towerPrefab: {fileID: 0}
+    - towerName: 
+      level: 0
+      damage: 0
+      range: 0
+      upgradeCost: 0
+      upgradeTime: 0
+      towerPrefab: {fileID: 0}
+    - towerName: 
+      level: 0
+      damage: 0
+      range: 0
+      upgradeCost: 0
+      upgradeTime: 0
+      towerPrefab: {fileID: 0}
+  - towerType: 2
+    towers:
+    - towerName: 
+      level: 0
+      damage: 0
+      range: 0
+      upgradeCost: 0
+      upgradeTime: 0
+      towerPrefab: {fileID: 0}
+    - towerName: 
+      level: 0
+      damage: 0
+      range: 0
+      upgradeCost: 0
+      upgradeTime: 0
+      towerPrefab: {fileID: 0}
+    - towerName: 
+      level: 0
+      damage: 0
+      range: 0
+      upgradeCost: 0
+      upgradeTime: 0
+      towerPrefab: {fileID: 0}
+    - towerName: 
+      level: 0
+      damage: 0
+      range: 0
+      upgradeCost: 0
+      upgradeTime: 0
+      towerPrefab: {fileID: 0}
+  - towerType: 3
+    towers:
+    - towerName: 
+      level: 0
+      damage: 0
+      range: 0
+      upgradeCost: 0
+      upgradeTime: 0
+      towerPrefab: {fileID: 0}
+    - towerName: 
+      level: 0
+      damage: 0
+      range: 0
+      upgradeCost: 0
+      upgradeTime: 0
+      towerPrefab: {fileID: 0}
+    - towerName: 
+      level: 0
+      damage: 0
+      range: 0
+      upgradeCost: 0
+      upgradeTime: 0
+      towerPrefab: {fileID: 0}
+    - towerName: 
+      level: 0
+      damage: 0
+      range: 0
+      upgradeCost: 0
+      upgradeTime: 0
+      towerPrefab: {fileID: 0}

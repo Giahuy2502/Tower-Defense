@@ -1,17 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using _Asset.Scripts.MyAsset;
 using UnityEngine;
 
 public class TowerLevelUpSystem : MonoBehaviour
 {
     [SerializeField] private TowerData towerData;
     [SerializeField] private GameObject towerToUpdate;
-    private List<TowerLevelData> towerLevelData;
+    
+    private Dictionary<TowerType,List<TowerInfo>> towers = new ();
 
     private void Start()
     {
-        towerLevelData = towerData.Towers;
+        towers = towerData.towerLevelUps;
     }
 
     public void Update()
@@ -30,10 +32,12 @@ public class TowerLevelUpSystem : MonoBehaviour
     {
         if(tower == null) return;
         var baseTower = tower.GetComponent<BaseTower>();
+        var towerType = baseTower.TowerType;
+        var listTower = towers[towerType]; 
         var towerPos = tower.transform.position;
         var towerLevel = baseTower.TowerLevel;
-        if (towerLevel == towerLevelData.Count) return;
-        var newTowerData = towerLevelData[towerLevel];
+        if (towerLevel == listTower.Count) return;
+        var newTowerData = listTower[towerLevel];
         var newTowerPrefabs = newTowerData.towerPrefab;
         Destroy(tower);
         var newTower = Instantiate(newTowerPrefabs, towerPos, Quaternion.identity);

@@ -1,12 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using _Asset.Scripts.MyAsset;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BaseTower : MonoBehaviour
 {
     [Header("Tower Stats")]
-    [SerializeField] private string towerName;
+    [SerializeField] private TowerType towerType;
+    public string TowerName => towerType.ToString();
     [SerializeField] private int towerLevel;
     [SerializeField] protected float baseTowerHealth = 100f;
     [SerializeField] protected float baseTowerDamage = 20f;
@@ -18,15 +21,16 @@ public class BaseTower : MonoBehaviour
     [SerializeField] protected List<GameObject> activeMonsters = new List<GameObject>();
     
     private MapManager mapManager => MapManager.instance;
-    public string TowerName
-    {
-        get => towerName;
-        set => towerName = value;
-    }
     public int TowerLevel
     {
         get => towerLevel;
         set => towerLevel = value;
+    }
+
+    public TowerType TowerType
+    {
+        get => towerType;
+        set => towerType = value;
     }
 
     private Coroutine attackCoroutine;
