@@ -13,7 +13,11 @@ public class UIBlockPlacer : MonoBehaviour
 
     private void Start()
     {
-        towerUI[0].onClick.AddListener(()=>towerPlacementSystem.SpawnTowerObj(towers.Towers[0].towerPrefab));
+        for (int i = 0; i < towerUI.Count; i++)
+        {
+            var index = i;
+            towerUI[i].onClick.AddListener(()=>towerPlacementSystem.SpawnTowerObj(towerPlacementSystem.TowerInfos[index]));
+        }
     }
     
 }

@@ -1082,6 +1082,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75940665db07c584db2951e0dce9e61b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerData: {fileID: 11400000, guid: 9541a3042566b2948ad10d0402510ca4, type: 2}
+  towerInfos: []
   towerSpawned: {fileID: 0}
 --- !u!4 &429829806
 Transform:

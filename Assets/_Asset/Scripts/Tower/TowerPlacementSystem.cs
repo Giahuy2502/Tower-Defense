@@ -6,7 +6,15 @@ using UnityEngine;
 public class TowerPlacementSystem : MonoBehaviour
 {
     public static TowerPlacementSystem instance;
+    [SerializeField] private TowerData towerData;
+    [SerializeField] private List<TowerInfo> towerInfos;
     [SerializeField] private GameObject towerSpawned;
+
+    public List<TowerInfo> TowerInfos
+    {
+        get => towerInfos;
+        set => towerInfos = value;
+    }
 
     private void Awake()
     {
@@ -16,6 +24,7 @@ public class TowerPlacementSystem : MonoBehaviour
             return;
         }
         instance = this;
+        GetData();
     }
 
     public void Update()
@@ -24,10 +33,10 @@ public class TowerPlacementSystem : MonoBehaviour
         if(Input.GetMouseButtonDown(0)) PlaceTowerObj(towerSpawned);
     }
 
-    public GameObject SpawnTowerObj(GameObject tower)
+    public GameObject SpawnTowerObj(TowerInfo tower)
     {
         var mousePos = GetMouseWorldPosition();
-        var newTower = Instantiate(tower, mousePos, Quaternion.identity);
+        var newTower = Instantiate(tower.towerPrefab, mousePos, Quaternion.identity);
         towerSpawned = newTower;
         return newTower;
     }
@@ -57,5 +66,15 @@ public class TowerPlacementSystem : MonoBehaviour
         }
     
         return Vector3.zero; // Fallback nếu không intersect
+    }
+
+    private void GetData()
+    {
+        towerInfos = new List<TowerInfo>();
+        foreach (var tower in towerData.Towers)
+        {
+            var towerList = tower.towers;
+            towerInfos.Add(towerList[0]);
+        }
     }
 }
