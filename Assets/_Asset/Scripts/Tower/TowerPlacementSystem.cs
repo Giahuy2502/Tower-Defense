@@ -53,26 +53,25 @@ public class TowerPlacementSystem : MonoBehaviour
         return newTower;
     }
 
-    public void MoveTowerObj(GameObject towerObj)
+    private void MoveTowerObj(GameObject towerObj)
     {
         if (towerObj == null) return;
-        var mousePos = GetMouseWorldPosition();
-        var gridPos = grid.WorldToCell(mousePos);
-        towerObj.transform.position = grid.CellToWorld(gridPos);
+        var pos = GetCellPosition(GetMouseWorldPosition());
+        towerObj.transform.position = pos;
     }
 
     private void MovePlacementIndicator()
     {
-        var mousePos = GetMouseWorldPosition();
-        var gridPos = grid.WorldToCell(mousePos);
-        placementIndicator.SetPosition(grid.CellToWorld(gridPos));
+        var pos = GetCellPosition(GetMouseWorldPosition());
+        placementIndicator.SetPosition(pos);
     }
 
-    public void PlaceTowerObj(GameObject towerObj)
+    private void PlaceTowerObj(GameObject towerObj)
     {
         if (towerObj == null) return;
         if (!placementIndicator.IsValidPosition()) return;
-        towerObj.transform.position = GetMouseWorldPosition();
+        var pos = GetCellPosition(GetMouseWorldPosition());
+        towerObj.transform.position = pos;
         towerSpawned = null;
         placementIndicator.CurrentTower = towerSpawned;
         placementIndicator.Show(false);
@@ -101,5 +100,11 @@ public class TowerPlacementSystem : MonoBehaviour
             var towerList = tower.towers;
             towerInfos.Add(towerList[0]);
         }
+    }
+
+    private Vector3 GetCellPosition(Vector3 mousePos)
+    {
+        var gridPos = grid.WorldToCell(mousePos);
+        return grid.CellToWorld(gridPos);
     }
 }
