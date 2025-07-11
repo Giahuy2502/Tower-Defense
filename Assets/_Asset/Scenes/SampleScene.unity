@@ -221,6 +221,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000002, y: 0.19999999, z: 1.0000002}
   m_Center: {x: 0, y: 0.099999994, z: 0}
+--- !u!1 &69120227
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 69120228}
+  m_Layer: 0
+  m_Name: GridParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &69120228
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69120227}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1209260389}
+  m_Father: {fileID: 329762314}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &158573102
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,6 +1098,7 @@ Transform:
   - {fileID: 551639645}
   - {fileID: 429829806}
   - {fileID: 195415712}
+  - {fileID: 69120228}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &429829804
@@ -1100,6 +1133,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerSpawned: {fileID: 0}
   placementIndicator: {fileID: 1860609799}
+  sceneCamera: {fileID: 963194227}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  grid: {fileID: 1209260390}
   towerData: {fileID: 11400000, guid: 9541a3042566b2948ad10d0402510ca4, type: 2}
   towerInfos: []
 --- !u!4 &429829806
@@ -3299,7 +3337,7 @@ GameObject:
   - component: {fileID: 1107150284}
   - component: {fileID: 1107150283}
   - component: {fileID: 1107150282}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3492,6 +3530,50 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.19999999, z: 1}
   m_Center: {x: 0, y: 0.099999994, z: 0}
+--- !u!1 &1209260388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1209260389}
+  - component: {fileID: 1209260390}
+  m_Layer: 0
+  m_Name: Grid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1209260389
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209260388}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 69120228}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!156049354 &1209260390
+Grid:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209260388}
+  m_Enabled: 1
+  m_CellSize: {x: 1, y: 1, z: 1}
+  m_CellGap: {x: 0, y: 0, z: 0}
+  m_CellLayout: 0
+  m_CellSwizzle: 0
 --- !u!1 &1210052058
 GameObject:
   m_ObjectHideFlags: 0
@@ -5188,6 +5270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   validColor: {r: 0, g: 1, b: 0, a: 0.5}
   invalidColor: {r: 1, g: 0, b: 0, a: 0.5}
+  currentTower: {fileID: 0}
 --- !u!65 &1860609800
 BoxCollider:
   m_ObjectHideFlags: 0

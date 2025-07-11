@@ -6,12 +6,15 @@ using UnityEngine;
 public class TowerPlacementSystem : MonoBehaviour
 {
     public static TowerPlacementSystem instance;
+    [Header("Tower Placement Settings")]
     [SerializeField] private GameObject towerSpawned;
-    [SerializeField] private PlacementIndicator placementIndicator; 
+    [SerializeField] private PlacementIndicator placementIndicator;
+    [SerializeField] private Camera sceneCamera;
+    [SerializeField] private LayerMask layerMask;
+    [SerializeField] private Grid grid;
     [Header("Tower Data")]
     [SerializeField] private TowerData towerData;
     [SerializeField] private List<TowerInfo> towerInfos;
-   
 
     public List<TowerInfo> TowerInfos
     {
@@ -54,13 +57,15 @@ public class TowerPlacementSystem : MonoBehaviour
     {
         if (towerObj == null) return;
         var mousePos = GetMouseWorldPosition();
-        towerObj.transform.position = mousePos;
+        var gridPos = grid.WorldToCell(mousePos);
+        towerObj.transform.position = grid.CellToWorld(gridPos);
     }
 
     private void MovePlacementIndicator()
     {
         var mousePos = GetMouseWorldPosition();
-        placementIndicator.SetPosition(mousePos);
+        var gridPos = grid.WorldToCell(mousePos);
+        placementIndicator.SetPosition(grid.CellToWorld(gridPos));
     }
 
     public void PlaceTowerObj(GameObject towerObj)
@@ -75,15 +80,17 @@ public class TowerPlacementSystem : MonoBehaviour
     }
     private Vector3 GetMouseWorldPosition()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
-    
-        if (groundPlane.Raycast(ray, out float distance))
+        var mousePos = Input.mousePosition;
+        Vector3 lastPos = new();
+        mousePos.z = sceneCamera.nearClipPlane;
+        Ray ray = sceneCamera.ScreenPointToRay(mousePos);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 100f, layerMask))
         {
-            return ray.GetPoint(distance);
+            lastPos = hit.point;
         }
-    
-        return Vector3.zero; // Fallback nếu không intersect
+
+        return lastPos;
     }
 
     private void GetData()
