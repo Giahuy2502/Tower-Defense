@@ -6,9 +6,12 @@ using UnityEngine;
 public class TowerPlacementSystem : MonoBehaviour
 {
     public static TowerPlacementSystem instance;
+    [SerializeField] private GameObject towerSpawned;
+    [SerializeField] private PlacementIndicator placementIndicator; 
+    [Header("Tower Data")]
     [SerializeField] private TowerData towerData;
     [SerializeField] private List<TowerInfo> towerInfos;
-    [SerializeField] private GameObject towerSpawned;
+   
 
     public List<TowerInfo> TowerInfos
     {
@@ -30,7 +33,11 @@ public class TowerPlacementSystem : MonoBehaviour
     public void Update()
     {
         MoveTowerObj(towerSpawned);
-        if(Input.GetMouseButtonDown(0)) PlaceTowerObj(towerSpawned);
+        MovePlacementIndicator();
+        if (Input.GetMouseButtonDown(0))
+        {
+            PlaceTowerObj(towerSpawned);
+        }
     }
 
     public GameObject SpawnTowerObj(TowerInfo tower)
@@ -38,6 +45,8 @@ public class TowerPlacementSystem : MonoBehaviour
         var mousePos = GetMouseWorldPosition();
         var newTower = Instantiate(tower.towerPrefab, mousePos, Quaternion.identity);
         towerSpawned = newTower;
+        placementIndicator.CurrentTower = towerSpawned;
+        placementIndicator.Show(true);
         return newTower;
     }
 
@@ -48,11 +57,20 @@ public class TowerPlacementSystem : MonoBehaviour
         towerObj.transform.position = mousePos;
     }
 
+    private void MovePlacementIndicator()
+    {
+        var mousePos = GetMouseWorldPosition();
+        placementIndicator.SetPosition(mousePos);
+    }
+
     public void PlaceTowerObj(GameObject towerObj)
     {
         if (towerObj == null) return;
+        if (!placementIndicator.IsValidPosition()) return;
         towerObj.transform.position = GetMouseWorldPosition();
         towerSpawned = null;
+        placementIndicator.CurrentTower = towerSpawned;
+        placementIndicator.Show(false);
         return;
     }
     private Vector3 GetMouseWorldPosition()

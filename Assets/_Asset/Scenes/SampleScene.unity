@@ -175,6 +175,10 @@ PrefabInstance:
       value: tile-straight (20)
       objectReference: {fileID: 0}
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
+      propertyPath: m_TagString
+      value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -356,6 +360,10 @@ PrefabInstance:
       value: tile-river-straight
       objectReference: {fileID: 0}
     - target: {fileID: 8203451859444515096, guid: 8177a35c1b39fc44fa21d6599fd659fe, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203451859444515096, guid: 8177a35c1b39fc44fa21d6599fd659fe, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -473,10 +481,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2774252337005919074, guid: 912f010f678c6114cb89ee1e2d444494, type: 3}
-      propertyPath: baseTowerDamage
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 3052750306152535545, guid: 912f010f678c6114cb89ee1e2d444494, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5
@@ -610,6 +614,10 @@ PrefabInstance:
       value: tile-straight (4)
       objectReference: {fileID: 0}
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
+      propertyPath: m_TagString
+      value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -703,6 +711,10 @@ PrefabInstance:
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_Name
       value: tile-straight (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
+      propertyPath: m_TagString
+      value: Road
       objectReference: {fileID: 0}
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -908,6 +920,10 @@ PrefabInstance:
       value: tile-straight (9)
       objectReference: {fileID: 0}
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
+      propertyPath: m_TagString
+      value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -1061,8 +1077,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 429829806}
-  - component: {fileID: 429829805}
   - component: {fileID: 429829807}
+  - component: {fileID: 429829805}
   m_Layer: 0
   m_Name: TowerManager
   m_TagString: Untagged
@@ -1082,9 +1098,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75940665db07c584db2951e0dce9e61b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerSpawned: {fileID: 0}
+  placementIndicator: {fileID: 1860609799}
   towerData: {fileID: 11400000, guid: 9541a3042566b2948ad10d0402510ca4, type: 2}
   towerInfos: []
-  towerSpawned: {fileID: 0}
 --- !u!4 &429829806
 Transform:
   m_ObjectHideFlags: 0
@@ -1165,6 +1182,10 @@ PrefabInstance:
     - target: {fileID: 1528374246133067837, guid: fa39f4f33927f994a9f87f0e92cddd88, type: 3}
       propertyPath: m_Name
       value: tile-corner-large (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528374246133067837, guid: fa39f4f33927f994a9f87f0e92cddd88, type: 3}
+      propertyPath: m_TagString
+      value: Road
       objectReference: {fileID: 0}
     - target: {fileID: 1528374246133067837, guid: fa39f4f33927f994a9f87f0e92cddd88, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1330,6 +1351,10 @@ PrefabInstance:
       value: tile-split
       objectReference: {fileID: 0}
     - target: {fileID: 6724113561950112778, guid: 72f4f812d24cf354998b3ecde306645e, type: 3}
+      propertyPath: m_TagString
+      value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 6724113561950112778, guid: 72f4f812d24cf354998b3ecde306645e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -1423,6 +1448,10 @@ PrefabInstance:
     - target: {fileID: 7253731617226131648, guid: 7dd5734837f59ad40a5ef95c7bab29f8, type: 3}
       propertyPath: m_Name
       value: tile-spawn-end
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253731617226131648, guid: 7dd5734837f59ad40a5ef95c7bab29f8, type: 3}
+      propertyPath: m_TagString
+      value: Road
       objectReference: {fileID: 0}
     - target: {fileID: 7253731617226131648, guid: 7dd5734837f59ad40a5ef95c7bab29f8, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1520,6 +1549,10 @@ PrefabInstance:
       value: tile-straight (15)
       objectReference: {fileID: 0}
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
+      propertyPath: m_TagString
+      value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -1604,7 +1637,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 577201774}
-  - component: {fileID: 577201775}
   m_Layer: 0
   m_Name: Enviroment
   m_TagString: Untagged
@@ -1665,37 +1697,6 @@ Transform:
   - {fileID: 1320981959}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &577201775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577201773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.083333336
-  m_MinRegionArea: 0
-  m_NavMeshData: {fileID: 23800000, guid: 03549df50ed007e4f8525f50ef15c4b1, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!1001 &589676549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1747,6 +1748,10 @@ PrefabInstance:
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_Name
       value: tile-straight (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
+      propertyPath: m_TagString
+      value: Road
       objectReference: {fileID: 0}
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1802,6 +1807,10 @@ PrefabInstance:
     - target: {fileID: 1487862475415155332, guid: 1e5d74f59bc86d0479166e011627699e, type: 3}
       propertyPath: m_Name
       value: tile-spawn-end-round
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487862475415155332, guid: 1e5d74f59bc86d0479166e011627699e, type: 3}
+      propertyPath: m_TagString
+      value: Road
       objectReference: {fileID: 0}
     - target: {fileID: 1487862475415155332, guid: 1e5d74f59bc86d0479166e011627699e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1939,6 +1948,10 @@ PrefabInstance:
       value: tile-straight (16)
       objectReference: {fileID: 0}
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
+      propertyPath: m_TagString
+      value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -2032,6 +2045,10 @@ PrefabInstance:
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_Name
       value: tile-straight (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
+      propertyPath: m_TagString
+      value: Road
       objectReference: {fileID: 0}
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2247,6 +2264,10 @@ PrefabInstance:
       value: tile-straight (18)
       objectReference: {fileID: 0}
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
+      propertyPath: m_TagString
+      value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -2405,6 +2426,10 @@ PrefabInstance:
       value: tile-straight (11)
       objectReference: {fileID: 0}
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
+      propertyPath: m_TagString
+      value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -2548,6 +2573,10 @@ PrefabInstance:
       value: tile-straight (8)
       objectReference: {fileID: 0}
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
+      propertyPath: m_TagString
+      value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -2641,6 +2670,10 @@ PrefabInstance:
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_Name
       value: tile-straight (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
+      propertyPath: m_TagString
+      value: Road
       objectReference: {fileID: 0}
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2774,6 +2807,10 @@ PrefabInstance:
       value: tile-straight (14)
       objectReference: {fileID: 0}
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
+      propertyPath: m_TagString
+      value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -2867,6 +2904,10 @@ PrefabInstance:
     - target: {fileID: 7083943393078139488, guid: 6020b124fff982c45ac25f6331294f07, type: 3}
       propertyPath: m_Name
       value: tile-river-bridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 7083943393078139488, guid: 6020b124fff982c45ac25f6331294f07, type: 3}
+      propertyPath: m_TagString
+      value: Road
       objectReference: {fileID: 0}
     - target: {fileID: 7083943393078139488, guid: 6020b124fff982c45ac25f6331294f07, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3101,6 +3142,10 @@ PrefabInstance:
       value: tile-straight
       objectReference: {fileID: 0}
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
+      propertyPath: m_TagString
+      value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -3194,6 +3239,10 @@ PrefabInstance:
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_Name
       value: tile-straight (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
+      propertyPath: m_TagString
+      value: Road
       objectReference: {fileID: 0}
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3395,6 +3444,10 @@ PrefabInstance:
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_Name
       value: tile-straight (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
+      propertyPath: m_TagString
+      value: Road
       objectReference: {fileID: 0}
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3692,6 +3745,10 @@ PrefabInstance:
       value: tile-river-corner
       objectReference: {fileID: 0}
     - target: {fileID: 8440779618571133620, guid: f5470dc1747e6da4ca412f0ff67fa309, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440779618571133620, guid: f5470dc1747e6da4ca412f0ff67fa309, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -3804,6 +3861,10 @@ PrefabInstance:
     - target: {fileID: 6724113561950112778, guid: 72f4f812d24cf354998b3ecde306645e, type: 3}
       propertyPath: m_Name
       value: tile-split (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6724113561950112778, guid: 72f4f812d24cf354998b3ecde306645e, type: 3}
+      propertyPath: m_TagString
+      value: Road
       objectReference: {fileID: 0}
     - target: {fileID: 6724113561950112778, guid: 72f4f812d24cf354998b3ecde306645e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3930,6 +3991,10 @@ PrefabInstance:
     - target: {fileID: 8203451859444515096, guid: 8177a35c1b39fc44fa21d6599fd659fe, type: 3}
       propertyPath: m_Name
       value: tile-river-straight (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203451859444515096, guid: 8177a35c1b39fc44fa21d6599fd659fe, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 8203451859444515096, guid: 8177a35c1b39fc44fa21d6599fd659fe, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4113,6 +4178,10 @@ PrefabInstance:
       value: tile-straight (3)
       objectReference: {fileID: 0}
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
+      propertyPath: m_TagString
+      value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -4206,6 +4275,10 @@ PrefabInstance:
     - target: {fileID: 8203451859444515096, guid: 8177a35c1b39fc44fa21d6599fd659fe, type: 3}
       propertyPath: m_Name
       value: tile-river-straight (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203451859444515096, guid: 8177a35c1b39fc44fa21d6599fd659fe, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 8203451859444515096, guid: 8177a35c1b39fc44fa21d6599fd659fe, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4623,6 +4696,10 @@ PrefabInstance:
       value: tile-river-straight (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8203451859444515096, guid: 8177a35c1b39fc44fa21d6599fd659fe, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203451859444515096, guid: 8177a35c1b39fc44fa21d6599fd659fe, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -4716,6 +4793,10 @@ PrefabInstance:
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_Name
       value: tile-straight (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
+      propertyPath: m_TagString
+      value: Road
       objectReference: {fileID: 0}
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4813,6 +4894,10 @@ PrefabInstance:
       value: tile-river-bridge (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7083943393078139488, guid: 6020b124fff982c45ac25f6331294f07, type: 3}
+      propertyPath: m_TagString
+      value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 7083943393078139488, guid: 6020b124fff982c45ac25f6331294f07, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -4906,6 +4991,10 @@ PrefabInstance:
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_Name
       value: tile-straight (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
+      propertyPath: m_TagString
+      value: Road
       objectReference: {fileID: 0}
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5003,6 +5092,10 @@ PrefabInstance:
       value: tile-straight (22)
       objectReference: {fileID: 0}
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
+      propertyPath: m_TagString
+      value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -5045,6 +5138,154 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.19999999, z: 1}
   m_Center: {x: 0, y: 0.099999994, z: 0}
+--- !u!1 &1860609797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1860609798}
+  - component: {fileID: 1860609802}
+  - component: {fileID: 1860609801}
+  - component: {fileID: 1860609800}
+  - component: {fileID: 1860609799}
+  - component: {fileID: 1860609803}
+  m_Layer: 0
+  m_Name: PlacementIndicator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1860609798
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860609797}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0.2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1860609799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860609797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4795d8b325b0c144929a945c4d42048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  validColor: {r: 0, g: 1, b: 0, a: 0.5}
+  invalidColor: {r: 1, g: 0, b: 0, a: 0.5}
+--- !u!65 &1860609800
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860609797}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1860609801
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860609797}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 686bceddbe1bb2d4bae4eee514c0454d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1860609802
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860609797}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1860609803
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860609797}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1861520192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5255,6 +5496,10 @@ PrefabInstance:
       value: tile-straight (6)
       objectReference: {fileID: 0}
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
+      propertyPath: m_TagString
+      value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -5348,6 +5593,10 @@ PrefabInstance:
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_Name
       value: tile-straight (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
+      propertyPath: m_TagString
+      value: Road
       objectReference: {fileID: 0}
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5445,6 +5694,10 @@ PrefabInstance:
       value: tile-corner-large
       objectReference: {fileID: 0}
     - target: {fileID: 1528374246133067837, guid: fa39f4f33927f994a9f87f0e92cddd88, type: 3}
+      propertyPath: m_TagString
+      value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528374246133067837, guid: fa39f4f33927f994a9f87f0e92cddd88, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -5540,6 +5793,10 @@ PrefabInstance:
       value: tile-river-straight (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8203451859444515096, guid: 8177a35c1b39fc44fa21d6599fd659fe, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203451859444515096, guid: 8177a35c1b39fc44fa21d6599fd659fe, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -5633,6 +5890,10 @@ PrefabInstance:
     - target: {fileID: 8203451859444515096, guid: 8177a35c1b39fc44fa21d6599fd659fe, type: 3}
       propertyPath: m_Name
       value: tile-river-straight (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203451859444515096, guid: 8177a35c1b39fc44fa21d6599fd659fe, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 8203451859444515096, guid: 8177a35c1b39fc44fa21d6599fd659fe, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5747,6 +6008,10 @@ PrefabInstance:
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_Name
       value: tile-straight (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
+      propertyPath: m_TagString
+      value: Road
       objectReference: {fileID: 0}
     - target: {fileID: 7861182862800677592, guid: 4037610b0d7bea74ca80fb8c6f02cf4b, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5998,3 +6263,4 @@ SceneRoots:
   - {fileID: 1680716779}
   - {fileID: 329762314}
   - {fileID: 158573103}
+  - {fileID: 1860609798}

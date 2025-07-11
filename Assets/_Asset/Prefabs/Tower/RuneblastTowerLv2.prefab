@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2defb66cdf479428518b0a4ea2e7fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerName: 
+  towerType: 0
   towerLevel: 2
   baseTowerHealth: 100
   baseTowerDamage: 20
