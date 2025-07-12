@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameUltis;
 
 public class TowerPlacementSystem : MonoBehaviour
 {
@@ -12,10 +13,12 @@ public class TowerPlacementSystem : MonoBehaviour
     [SerializeField] private Camera sceneCamera;
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private Grid grid;
+    [SerializeField] private GameObject gridVisualization;
     [Header("Tower Data")]
     [SerializeField] private TowerData towerData;
     [SerializeField] private List<TowerInfo> towerInfos;
 
+    private GridData gridData => MapManager.instance.GridData;
     public List<TowerInfo> TowerInfos
     {
         get => towerInfos;
@@ -33,23 +36,35 @@ public class TowerPlacementSystem : MonoBehaviour
         GetData();
     }
 
+    private void Start()
+    {
+        Hide(gridVisualization);
+        Hide(placementIndicator.gameObject);
+    }
+
     public void Update()
     {
         MoveTowerObj(towerSpawned);
         MovePlacementIndicator();
         if (Input.GetMouseButtonDown(0))
         {
-            PlaceTowerObj(towerSpawned);
+            ExitPlacementTower(towerSpawned);
         }
     }
 
-    public GameObject SpawnTowerObj(TowerInfo tower)
+    public void FixedUpdate()
+    {
+        CheckValidPos();
+    }
+
+    public GameObject StartPlacementTower(TowerInfo tower)
     {
         var mousePos = GetMouseWorldPosition();
         var newTower = Instantiate(tower.towerPrefab, mousePos, Quaternion.identity);
         towerSpawned = newTower;
         placementIndicator.CurrentTower = towerSpawned;
         placementIndicator.Show(true);
+        Show(gridVisualization);
         return newTower;
     }
 
@@ -66,15 +81,17 @@ public class TowerPlacementSystem : MonoBehaviour
         placementIndicator.SetPosition(pos);
     }
 
-    private void PlaceTowerObj(GameObject towerObj)
+    private void ExitPlacementTower(GameObject towerObj)
     {
         if (towerObj == null) return;
-        if (!placementIndicator.IsValidPosition()) return;
+        if (!CheckValidPos()) return;
+        AddToGridData();
         var pos = GetCellPosition(GetMouseWorldPosition());
         towerObj.transform.position = pos;
         towerSpawned = null;
         placementIndicator.CurrentTower = towerSpawned;
         placementIndicator.Show(false);
+        Hide(gridVisualization);
         return;
     }
     private Vector3 GetMouseWorldPosition()
@@ -106,5 +123,20 @@ public class TowerPlacementSystem : MonoBehaviour
     {
         var gridPos = grid.WorldToCell(mousePos);
         return grid.CellToWorld(gridPos);
+    }
+
+    private bool CheckValidPos()
+    {
+        if (!placementIndicator.gameObject.activeSelf) return false;
+        var gridPosInt = GetCellPositionInt(grid,GetMouseWorldPosition());
+        var isValid = gridData.CanPlaceObjectAt(gridPosInt, Vector2Int.one);
+        placementIndicator.SetValid(isValid);
+        return isValid;
+    }
+
+    void AddToGridData()
+    {
+        var gridPosInt = GetCellPositionInt(grid,GetMouseWorldPosition());
+        gridData.AddObjectAt(gridPosInt,Vector2Int.one,towerSpawned);
     }
 }

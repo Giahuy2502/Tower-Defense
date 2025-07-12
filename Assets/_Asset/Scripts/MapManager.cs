@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using _Asset.Scripts.MyAsset;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using static GameUltis;
 
 public class MapManager : MonoBehaviour
 {
@@ -17,7 +18,11 @@ public class MapManager : MonoBehaviour
     [SerializeField] private Transform startPos;
     [SerializeField] private Transform endPos;
     [SerializeField] private List<GameObject> waypoints;
-
+    [Header("Map")]
+    [SerializeField] private Grid grid;
+    [SerializeField] private List<MapTag> mapTags = new List<MapTag>();
+    [SerializeField] private List<GameObject> mapObjects;
+    private GridData gridData = new();
     public Transform StartPos
     {
         get => startPos;
@@ -48,6 +53,12 @@ public class MapManager : MonoBehaviour
         set => waypoints = value;
     }
 
+    public GridData GridData
+    {
+        get => gridData;
+        set => gridData = value;
+    }
+
     private void Awake()
     {
         if (instance != null)
@@ -56,6 +67,7 @@ public class MapManager : MonoBehaviour
             return;
         }
         instance = this;
+        SetGridData();
     }
 
     void Start()
@@ -67,5 +79,23 @@ public class MapManager : MonoBehaviour
     {
         monsterCount--;
         ActiveMonsters.Remove(monster);
+    }
+
+    private void SetGridData()
+    {
+        mapObjects.Clear();
+
+        foreach (var tag in mapTags)
+        {
+            var objects = GameObject.FindGameObjectsWithTag(tag.ToString());
+            mapObjects.AddRange(objects);
+        }
+
+        foreach (var obj in mapObjects)
+        {
+            Vector2Int objSize = GetSize(obj);
+            Vector3Int gridPos = GetCellPositionInt(grid,obj.transform.position);
+            gridData.AddObjectAt(gridPos,objSize, obj);
+        }
     }
 }

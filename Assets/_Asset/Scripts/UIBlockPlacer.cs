@@ -16,7 +16,7 @@ public class UIBlockPlacer : MonoBehaviour
         for (int i = 0; i < towerUI.Count; i++)
         {
             var index = i;
-            towerUI[i].onClick.AddListener(()=>towerPlacementSystem.SpawnTowerObj(towerPlacementSystem.TowerInfos[index]));
+            towerUI[i].onClick.AddListener(()=>towerPlacementSystem.StartPlacementTower(towerPlacementSystem.TowerInfos[index]));
         }
     }
     

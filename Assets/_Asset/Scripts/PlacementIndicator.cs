@@ -21,11 +21,11 @@ public class PlacementIndicator : MonoBehaviour
         indicatorMaterial = meshRenderer.material;
     }
 
-    private void FixedUpdate()
-    {
-        var isValidPosition = IsValidPosition();
-        SetValid(isValidPosition);
-    }
+    // private void FixedUpdate()
+    // {
+    //     var isValidPosition = IsValidPosition();
+    //     SetValid(isValidPosition);
+    // }
 
     public void SetPosition(Vector3 worldPosition)
     {
