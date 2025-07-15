@@ -106,6 +106,54 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &976510311678230662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7091599224900322747}
+  - component: {fileID: 8530943175985238948}
+  m_Layer: 0
+  m_Name: PreviewSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7091599224900322747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976510311678230662}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2418888751463691243}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8530943175985238948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976510311678230662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e93654a27bc4434e8254902dcd0f946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previewYOffset: 0.06
+  previewMaterial: {fileID: -876546973899608171, guid: 95e096057e120e94fa07e53cce943f50, type: 3}
+  previewObject: {fileID: 0}
+  previewObjectInstance: {fileID: 0}
 --- !u!1 &1018801866978398648
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,6 +634,7 @@ MonoBehaviour:
     m_Bits: 8
   grid: {fileID: 362197858867299965}
   gridVisualization: {fileID: 2655648269844847671}
+  previewSystem: {fileID: 8530943175985238948}
   towerData: {fileID: 11400000, guid: 9541a3042566b2948ad10d0402510ca4, type: 2}
   towerInfos: []
 --- !u!1 &5260229195983336756
@@ -632,7 +681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d170406867105e499638b433e5b2386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
+  level: 1
   currentWave: 0
   levelData: {fileID: 11400000, guid: 191f4b09c17f6cb4ea37dab311ba3895, type: 2}
   currentLevel:
@@ -672,5 +721,6 @@ Transform:
   - {fileID: 7938713355958710928}
   - {fileID: 5172495533569567787}
   - {fileID: 3956839704415681254}
+  - {fileID: 7091599224900322747}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -14,6 +14,7 @@ public class TowerPlacementSystem : MonoBehaviour
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private Grid grid;
     [SerializeField] private GameObject gridVisualization;
+    [SerializeField] private PreviewSystem previewSystem;
     [Header("Tower Data")]
     [SerializeField] private TowerData towerData;
     [SerializeField] private List<TowerInfo> towerInfos;
@@ -44,7 +45,7 @@ public class TowerPlacementSystem : MonoBehaviour
 
     public void Update()
     {
-        MoveTowerObj(towerSpawned);
+        MoveTowerObj();
         MovePlacementIndicator();
         if (Input.GetMouseButtonDown(0))
         {
@@ -54,25 +55,23 @@ public class TowerPlacementSystem : MonoBehaviour
 
     public void FixedUpdate()
     {
-        CheckValidPos();
+        var isValid = CheckValidPos();
+        previewSystem.UpdatePreview(isValid);
     }
 
-    public GameObject StartPlacementTower(TowerInfo tower)
+    public void StartPlacementTower(TowerInfo tower)
     {
-        var mousePos = GetMouseWorldPosition();
-        var newTower = Instantiate(tower.towerPrefab, mousePos, Quaternion.identity);
-        towerSpawned = newTower;
+        towerSpawned = tower.towerPrefab;
         placementIndicator.CurrentTower = towerSpawned;
         placementIndicator.Show(true);
         Show(gridVisualization);
-        return newTower;
+        previewSystem.StartPreview(towerSpawned);
     }
 
-    private void MoveTowerObj(GameObject towerObj)
+    private void MoveTowerObj()
     {
-        if (towerObj == null) return;
         var pos = GetCellPosition(GetMouseWorldPosition());
-        towerObj.transform.position = pos;
+        previewSystem.MovePreview(pos);
     }
 
     private void MovePlacementIndicator()
@@ -87,11 +86,12 @@ public class TowerPlacementSystem : MonoBehaviour
         if (!CheckValidPos()) return;
         AddToGridData();
         var pos = GetCellPosition(GetMouseWorldPosition());
-        towerObj.transform.position = pos;
+        var newTowerObj = Instantiate(towerObj, pos, Quaternion.identity);
         towerSpawned = null;
         placementIndicator.CurrentTower = towerSpawned;
         placementIndicator.Show(false);
         Hide(gridVisualization);
+        previewSystem.StopPreview();
         return;
     }
     private Vector3 GetMouseWorldPosition()
