@@ -9,16 +9,14 @@ public class BaseTower : MonoBehaviour
 {
     [Header("Tower Stats")]
     [SerializeField] private TowerType towerType;
-    public string TowerName => towerType.ToString();
     [SerializeField] private int towerLevel;
-    [SerializeField] protected float baseTowerHealth = 100f;
     [SerializeField] protected float baseTowerDamage = 20f;
     [SerializeField] protected float rotateSpeed = 5f;
+    [SerializeField] private float baseTowerRange = 15f;
+    [SerializeField] private float upgradeCost;
     [Header("Base Tower")]
     [SerializeField] protected GameObject barrel;
     [SerializeField] protected TowerAttack towerAttack;
-
-    [SerializeField] protected List<GameObject> activeMonsters = new List<GameObject>();
     
     private MapManager mapManager => MapManager.instance;
     public int TowerLevel
@@ -33,37 +31,36 @@ public class BaseTower : MonoBehaviour
         set => towerType = value;
     }
 
-    private Coroutine attackCoroutine;
+    public float BaseTowerRange
+    {
+        get => baseTowerRange;
+        set => baseTowerRange = value;
+    }
+
+    public float RotateSpeed
+    {
+        get => rotateSpeed;
+        set => rotateSpeed = value;
+    }
+
+    public float BaseTowerDamage
+    {
+        get => baseTowerDamage;
+        set => baseTowerDamage = value;
+    }
+
+
     protected void Start()
     {
-        activeMonsters = mapManager.ActiveMonsters;
-        towerAttack.Damage = baseTowerDamage;
+        
     }
-    protected void Update()
-    {
-        RotateBarrelToMonster();
-        DoAttack();
-    }
-    private void DoAttack()
-    {
-        if (towerAttack.attackCoroutine != null) return;
 
-        if (activeMonsters.Count > 0)
-        {
-            towerAttack.StartAttack(activeMonsters[0]);
-        }
-    }
-    private void RotateBarrelToMonster()
+    public void InitializeTower(TowerInfo towerInfo)
     {
-        if (activeMonsters.Count <= 0 || activeMonsters[0]==null) return;
-        var targetMonster = activeMonsters[0];
-        var direction = targetMonster.transform.position - transform.position;
-        direction.y = 0f;
-
-        if (direction.sqrMagnitude > 0.001f)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
-            barrel.transform.rotation = Quaternion.Slerp(barrel.transform.rotation, targetRotation, Time.deltaTime * rotateSpeed);
-        }
+        towerLevel = towerInfo.level;
+        baseTowerRange = towerInfo.range;
+        baseTowerDamage = towerInfo.damage;
+        upgradeCost = towerInfo.upgradeCost;
     }
+
 }

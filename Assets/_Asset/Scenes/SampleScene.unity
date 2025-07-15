@@ -383,6 +383,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1031951728401246271, guid: 912f010f678c6114cb89ee1e2d444494, type: 3}
+      propertyPath: timeBetweenBullets
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2774252337005919074, guid: 912f010f678c6114cb89ee1e2d444494, type: 3}
+      propertyPath: baseTowerRange
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3052750306152535545, guid: 912f010f678c6114cb89ee1e2d444494, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5

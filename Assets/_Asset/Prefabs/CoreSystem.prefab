@@ -301,7 +301,7 @@ MonoBehaviour:
   poolInfo: []
   data: {fileID: 11400000, guid: 42afe55613680a6499955bd8f0fa59f2, type: 2}
   bulletPoolSize: 5
-  bulletFixedSize: 1
+  bulletFixedSize: 0
 --- !u!1 &1694689434644733408
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,7 +653,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5172495533569567787
 Transform:
   m_ObjectHideFlags: 0
