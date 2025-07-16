@@ -14,6 +14,12 @@ public class HealthMonster : MonoBehaviour
         set => health = value;
     }
 
+    public float HealthMax
+    {
+        get => healthMax;
+        set => healthMax = value;
+    }
+
     private void OnEnable()
     {
         health = healthMax;

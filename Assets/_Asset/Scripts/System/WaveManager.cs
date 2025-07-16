@@ -51,7 +51,7 @@ public class WaveManager : MonoBehaviour
         if(count <=0 ) yield break;
         while (count > 0)
         {
-            monsterPool.GetObjectFromPool(monsterData.monsterType,mapManager.StartPos.position,Quaternion.identity);
+            monsterPool.GetObjectFromPool(monsterData.monsterType,mapManager.StartPos.position,Quaternion.identity,monster);
             count--;
             // Debug.Log($"Spawning monster {monsterData.monsterType} {count}");
             yield return new WaitForSeconds(1f);

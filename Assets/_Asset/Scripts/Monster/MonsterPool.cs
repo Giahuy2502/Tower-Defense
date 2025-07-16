@@ -10,7 +10,7 @@ public class MonsterPool : EasyObjectPool
     [SerializeField] private int monsterPoolSize;
     [SerializeField] private bool monsterFixedSize;
     public static new MonsterPool instance;
-
+    private EnemySpawnInfo spawnInfo;
     private MapManager mapManager => MapManager.instance;
     protected void Awake()
     {
@@ -37,9 +37,10 @@ public class MonsterPool : EasyObjectPool
         }
     }
 
-    public GameObject GetObjectFromPool(MonsterType poolName, Vector3 position, Quaternion rotation)
+    public GameObject GetObjectFromPool(MonsterType poolName, Vector3 position, Quaternion rotation,EnemySpawnInfo spawnInfo)
     {
         var monsterName = poolName.ToString();
+        this.spawnInfo = spawnInfo;
         return GetObjectFromPool(monsterName, position, rotation);
     }
 
@@ -47,6 +48,8 @@ public class MonsterPool : EasyObjectPool
     {
         mapManager.ActiveMonsters.Add(obj);
         mapManager.MonsterCount++;
+        var monsterBase = obj.GetComponent<BaseMonster>();
+        monsterBase.Initialize(spawnInfo);
     }
 
     public override void OnReturn(GameObject obj)

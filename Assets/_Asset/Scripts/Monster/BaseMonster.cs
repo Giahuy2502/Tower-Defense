@@ -11,7 +11,7 @@ public class BaseMonster : MonoBehaviour
     public float speed = 1f;
     [SerializeField] protected float despawnDelay = 5f;
     [SerializeField] private Transform targetPos;
-
+    [SerializeField] private float rewardGold;
     
     protected Animator animator;
     protected MonsterState currentState = MonsterState.Normal;
@@ -39,6 +39,14 @@ public class BaseMonster : MonoBehaviour
         currentState = MonsterState.Normal;
         healthMonster = GetComponent<HealthMonster>();
         
+    }
+
+    public void Initialize(EnemySpawnInfo monsterSpawnInfo)
+    {
+        var monsterData = monsterSpawnInfo.monsterData;
+        healthMonster.HealthMax = monsterData.monsterHealth;
+        moveMonster.MoveSpeed = monsterData.monsterSpeed;
+        rewardGold = monsterSpawnInfo.rewardGold;
     }
 
     protected virtual void Update()
