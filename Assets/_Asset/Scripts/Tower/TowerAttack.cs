@@ -45,7 +45,7 @@ public class TowerAttack : MonoBehaviour
         }
 
         RotateBarrelToTarget();
-
+        if (!IsBarrelFacingTarget()) return;
         fireCountdown -= Time.deltaTime;
         if (fireCountdown <= 0f)
         {
@@ -111,4 +111,15 @@ public class TowerAttack : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
     }
+    
+    private bool IsBarrelFacingTarget()
+    {
+        if (barrel == null || targetMonster == null) return false;
+
+        Vector3 directionToTarget = (targetMonster.transform.position - barrel.transform.position).normalized;
+        float angle = Vector3.Angle(barrel.transform.forward, directionToTarget);
+
+        return angle < 5f;
+    }
+
 }
