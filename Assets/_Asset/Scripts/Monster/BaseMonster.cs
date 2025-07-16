@@ -11,13 +11,12 @@ public class BaseMonster : MonoBehaviour
     public float speed = 1f;
     [SerializeField] protected float despawnDelay = 5f;
     [SerializeField] private Transform targetPos;
-    [SerializeField] private float rewardGold;
+    [SerializeField] private int rewardGold;
     
     protected Animator animator;
     protected MonsterState currentState = MonsterState.Normal;
     protected MapManager mapManager => MapManager.instance;
-
-    
+    private EconomySystem economySystem => EconomySystem.instance;
 
     public MonsterState CurrentState => currentState;
 
@@ -77,9 +76,10 @@ public class BaseMonster : MonoBehaviour
         currentState = MonsterState.Die;
 
         moveMonster.StopMove();
-
+        economySystem.IncreaseGold(rewardGold);
         PlayDeathAnimation();
         mapManager.RemoveFromManager(gameObject);
+        EventSystem.Invoke(EventName.UpdateGoldTxt);
         Invoke(nameof(Despawn), despawnDelay);
     }
 
