@@ -41,6 +41,8 @@ public class TowerLevelUpSystem : MonoBehaviour
         var newTowerPrefabs = newTowerData.towerPrefab;
         Destroy(tower);
         var newTower = Instantiate(newTowerPrefabs, towerPos, Quaternion.identity);
+        var towerBase = newTower.GetComponent<BaseTower>();
+        towerBase.InitializeTower(newTowerData);
     }
 
     public GameObject GetTowerToUpdate()

@@ -19,6 +19,7 @@ public class BaseTower : MonoBehaviour
     [SerializeField] protected TowerAttack towerAttack;
     
     private MapManager mapManager => MapManager.instance;
+    private EconomySystem economySystem => EconomySystem.instance;
     public int TowerLevel
     {
         get => towerLevel;
@@ -61,6 +62,8 @@ public class BaseTower : MonoBehaviour
         baseTowerRange = towerInfo.range;
         baseTowerDamage = towerInfo.damage;
         upgradeCost = towerInfo.upgradeCost;
+        economySystem.BuyTower(towerInfo);
+        EventSystem.Invoke(EventName.UpdateGoldTxt);
     }
 
 }

@@ -20,6 +20,7 @@ public class TowerPlacementSystem : MonoBehaviour
     [SerializeField] private List<TowerInfo> towerInfos;
 
     private GridData gridData => MapManager.instance.GridData;
+    private TowerInfo currentTowerInfo;
     public List<TowerInfo> TowerInfos
     {
         get => towerInfos;
@@ -62,6 +63,7 @@ public class TowerPlacementSystem : MonoBehaviour
     public void StartPlacementTower(TowerInfo tower)
     {
         towerSpawned = tower.towerPrefab;
+        currentTowerInfo = tower;
         placementIndicator.CurrentTower = towerSpawned;
         placementIndicator.Show(true);
         Show(gridVisualization);
@@ -87,6 +89,8 @@ public class TowerPlacementSystem : MonoBehaviour
         AddToGridData();
         var pos = GetCellPosition(GetMouseWorldPosition());
         var newTowerObj = Instantiate(towerObj, pos, Quaternion.identity);
+        var towerBase = newTowerObj.GetComponent<BaseTower>();
+        towerBase.InitializeTower(currentTowerInfo);
         towerSpawned = null;
         placementIndicator.CurrentTower = towerSpawned;
         placementIndicator.Show(false);
