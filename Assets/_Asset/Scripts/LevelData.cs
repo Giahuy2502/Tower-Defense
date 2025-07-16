@@ -2,34 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "LevelData", menuName = "TowerDefense/LevelData")]
-public class LevelData : ScriptableObject
+[CreateAssetMenu(fileName = "LevelDatabase", menuName = "TowerDefense/Level Database")]
+public class LevelDatabase : ScriptableObject
 {
-    [SerializeField] private List<Level> levels = new List<Level>();
+    [SerializeField] private List<LevelConfig> levelList = new();
 
-    public List<Level> Levels
+    public List<LevelConfig> LevelList
     {
-        get => levels;
-        set => levels = value;
+        get => levelList;
+        set => levelList = value;
     }
 }
 
 [System.Serializable]
-public class Level
+public class LevelConfig
 {
-    public int level;
-    public List<Wave> waves = new();
+    public int levelNumber;                   
+    public LevelRewardConfig rewards;       
+    public List<EnemyWave> enemyWaves = new(); 
 }
 
 [System.Serializable]
-public class Wave
+public class EnemyWave
 {
-    public List<Monster> monsters = new();
+    public List<EnemySpawnInfo> enemySpawns = new(); 
+}
+[System.Serializable]
+public class EnemySpawnInfo
+{
+    public int spawnCount;               
+    public MonsterData monsterData;    
+    public int rewardGold;              
 }
 
+
 [System.Serializable]
-public class Monster
+public class LevelRewardConfig
 {
-    public int count;
-    public MonsterData monsterData;
+    [Header("Starting Resources")]
+    public int startingGold;              
+    [Header("Completion Rewards")]
+    public int rewardGold;                 
+    public int rewardGems;            
+    public int rewardExp;      
 }

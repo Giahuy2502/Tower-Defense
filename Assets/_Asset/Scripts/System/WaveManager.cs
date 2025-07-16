@@ -8,8 +8,8 @@ public class WaveManager : MonoBehaviour
 {
     [SerializeField] private int level;
     [SerializeField] private int currentWave ;
-    [SerializeField] private LevelData levelData;
-    [SerializeField] private Level currentLevel;
+    [SerializeField] private LevelDatabase levelData;
+    [SerializeField] private LevelConfig currentLevel;
     public static WaveManager instance;
     private MapManager mapManager => MapManager.instance;
     private MonsterPool monsterPool => MonsterPool.instance;
@@ -30,11 +30,11 @@ public class WaveManager : MonoBehaviour
     private void GetData()
     {
         level = mapManager.level;
-        currentLevel = levelData.Levels[level-1];
+        currentLevel = levelData.LevelList[level-1];
     }
-    IEnumerator StartWave(Wave wave)
+    IEnumerator StartWave(EnemyWave wave)
     {
-        foreach (var monster in wave.monsters)
+        foreach (var monster in wave.enemySpawns)
         {
             yield return StartCoroutine(SpawnMonster(monster));
             yield return new WaitForSeconds(1.5f);
@@ -43,9 +43,9 @@ public class WaveManager : MonoBehaviour
         WaveCoroutine = null;
     }
     
-    IEnumerator SpawnMonster(Monster monster)
+    IEnumerator SpawnMonster(EnemySpawnInfo monster)
     {
-        var count = monster.count;
+        var count = monster.spawnCount;
         // Debug.Log($"Spawning monster Count {count}");
         var monsterData = monster.monsterData;
         if(count <=0 ) yield break;
@@ -60,10 +60,10 @@ public class WaveManager : MonoBehaviour
 
     private void Update()
     {
-        if (mapManager.MonsterCount <= 0 && WaveCoroutine == null && currentWave < currentLevel.waves.Count)
+        if (mapManager.MonsterCount <= 0 && WaveCoroutine == null && currentWave < currentLevel.enemyWaves.Count)
         {
             // Debug.Log($"Waves : {currentWave}");
-            WaveCoroutine = StartCoroutine(StartWave(currentLevel.waves[currentWave]));
+            WaveCoroutine = StartCoroutine(StartWave(currentLevel.enemyWaves[currentWave]));
             currentWave++;
         }
     }

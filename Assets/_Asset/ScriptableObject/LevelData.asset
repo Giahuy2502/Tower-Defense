@@ -12,153 +12,117 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdd625ab2b74b0e49b14cbf3c88295bb, type: 3}
   m_Name: LevelData
   m_EditorClassIdentifier: 
-  levels:
-  - level: 1
-    waves:
-    - monsters:
-      - count: 5
+  levelList:
+  - levelNumber: 1
+    rewards:
+      startingGold: 100
+      rewardGold: 100
+      rewardGems: 100
+      rewardExp: 100
+    enemyWaves:
+    - enemySpawns:
+      - spawnCount: 5
         monsterData:
           monsterType: 0
           monsterHealth: 100
           monsterDamage: 0
           monsterSpeed: 1
           monsterPrefab: {fileID: 8597690155373931424, guid: 46f8a61549931754d9c4d78483abc57d, type: 3}
-      - count: 0
+        rewardGold: 10
+      - spawnCount: 0
         monsterData:
-          monsterType: 0
+          monsterType: 1
           monsterHealth: 0
           monsterDamage: 0
           monsterSpeed: 0
           monsterPrefab: {fileID: 0}
-      - count: 0
+        rewardGold: 0
+      - spawnCount: 0
         monsterData:
-          monsterType: 0
+          monsterType: 2
           monsterHealth: 0
           monsterDamage: 0
           monsterSpeed: 0
           monsterPrefab: {fileID: 0}
-      - count: 0
+        rewardGold: 0
+      - spawnCount: 0
         monsterData:
-          monsterType: 0
+          monsterType: 3
           monsterHealth: 0
           monsterDamage: 0
           monsterSpeed: 0
           monsterPrefab: {fileID: 0}
-    - monsters:
-      - count: 3
+        rewardGold: 0
+    - enemySpawns:
+      - spawnCount: 0
+        monsterData:
+          monsterType: 0
+          monsterHealth: 100
+          monsterDamage: 0
+          monsterSpeed: 1
+          monsterPrefab: {fileID: 8597690155373931424, guid: 46f8a61549931754d9c4d78483abc57d, type: 3}
+        rewardGold: 10
+      - spawnCount: 3
         monsterData:
           monsterType: 1
           monsterHealth: 100
           monsterDamage: 0
           monsterSpeed: 1
           monsterPrefab: {fileID: 1234111709830768784, guid: 588c56a3ddfb4bf41b5b66e3760f50db, type: 3}
-      - count: 0
+        rewardGold: 10
+      - spawnCount: 0
         monsterData:
-          monsterType: 0
+          monsterType: 2
           monsterHealth: 0
           monsterDamage: 0
           monsterSpeed: 0
           monsterPrefab: {fileID: 0}
-      - count: 0
+        rewardGold: 0
+      - spawnCount: 0
         monsterData:
-          monsterType: 0
+          monsterType: 3
           monsterHealth: 0
           monsterDamage: 0
           monsterSpeed: 0
           monsterPrefab: {fileID: 0}
-      - count: 0
+        rewardGold: 0
+    - enemySpawns:
+      - spawnCount: 0
         monsterData:
           monsterType: 0
-          monsterHealth: 0
+          monsterHealth: 100
           monsterDamage: 0
-          monsterSpeed: 0
-          monsterPrefab: {fileID: 0}
-    - monsters:
-      - count: 3
+          monsterSpeed: 1
+          monsterPrefab: {fileID: 8597690155373931424, guid: 46f8a61549931754d9c4d78483abc57d, type: 3}
+        rewardGold: 10
+      - spawnCount: 0
+        monsterData:
+          monsterType: 1
+          monsterHealth: 100
+          monsterDamage: 0
+          monsterSpeed: 1
+          monsterPrefab: {fileID: 1234111709830768784, guid: 588c56a3ddfb4bf41b5b66e3760f50db, type: 3}
+        rewardGold: 10
+      - spawnCount: 3
         monsterData:
           monsterType: 2
           monsterHealth: 100
           monsterDamage: 0
           monsterSpeed: 1
           monsterPrefab: {fileID: 7388487251707335804, guid: c7f87a2cdde89864387b7110146b6b9e, type: 3}
-      - count: 0
-        monsterData:
-          monsterType: 0
-          monsterHealth: 0
-          monsterDamage: 0
-          monsterSpeed: 0
-          monsterPrefab: {fileID: 0}
-      - count: 0
-        monsterData:
-          monsterType: 0
-          monsterHealth: 0
-          monsterDamage: 0
-          monsterSpeed: 0
-          monsterPrefab: {fileID: 0}
-      - count: 0
-        monsterData:
-          monsterType: 0
-          monsterHealth: 0
-          monsterDamage: 0
-          monsterSpeed: 0
-          monsterPrefab: {fileID: 0}
-    - monsters:
-      - count: 3
+        rewardGold: 10
+      - spawnCount: 0
         monsterData:
           monsterType: 3
-          monsterHealth: 100
-          monsterDamage: 0
-          monsterSpeed: 1
-          monsterPrefab: {fileID: 6566105134191379538, guid: 61e04b34fe8c33a42a6c61ee62b4dfe3, type: 3}
-      - count: 0
-        monsterData:
-          monsterType: 0
           monsterHealth: 0
           monsterDamage: 0
           monsterSpeed: 0
           monsterPrefab: {fileID: 0}
-      - count: 0
-        monsterData:
-          monsterType: 0
-          monsterHealth: 0
-          monsterDamage: 0
-          monsterSpeed: 0
-          monsterPrefab: {fileID: 0}
-      - count: 0
-        monsterData:
-          monsterType: 0
-          monsterHealth: 0
-          monsterDamage: 0
-          monsterSpeed: 0
-          monsterPrefab: {fileID: 0}
-  - level: 1
-    waves:
-    - monsters:
-      - count: 0
-        monsterData:
-          monsterType: 0
-          monsterHealth: 0
-          monsterDamage: 0
-          monsterSpeed: 0
-          monsterPrefab: {fileID: 0}
-      - count: 0
-        monsterData:
-          monsterType: 0
-          monsterHealth: 0
-          monsterDamage: 0
-          monsterSpeed: 0
-          monsterPrefab: {fileID: 0}
-      - count: 0
-        monsterData:
-          monsterType: 0
-          monsterHealth: 0
-          monsterDamage: 0
-          monsterSpeed: 0
-          monsterPrefab: {fileID: 0}
-      - count: 0
-        monsterData:
-          monsterType: 0
-          monsterHealth: 0
-          monsterDamage: 0
-          monsterSpeed: 0
-          monsterPrefab: {fileID: 0}
+        rewardGold: 0
+  - levelNumber: 0
+    rewards:
+      startingGold: 0
+      rewardGold: 0
+      rewardGems: 0
+      rewardExp: 0
+    enemyWaves: []
