@@ -561,6 +561,7 @@ Transform:
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7122127080001524804}
   - {fileID: 4301107161571461349}
   - {fileID: 3116161084376237285}
   - {fileID: 2647730914182112816}
@@ -685,10 +686,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthMonster: {fileID: 6271413151253646276}
-  moveMonster: {fileID: 0}
+  moveMonster: {fileID: 6396867676828569124}
   speed: 1
   despawnDelay: 5
-  targetPos: {fileID: 0}
+  targetPos: {fileID: 3728487324636316823}
+  rewardGold: 0
 --- !u!1 &1319331108269971732
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,6 +850,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1971739953960528036}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1973125991840098832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7122127080001524804}
+  m_Layer: 0
+  m_Name: Targetpos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7122127080001524804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973125991840098832}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.036, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3728487324636316823}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2260051943868503490
 GameObject:

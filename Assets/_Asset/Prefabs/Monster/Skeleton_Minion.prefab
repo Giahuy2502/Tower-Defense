@@ -2458,6 +2458,7 @@ GameObject:
   - component: {fileID: -5253559364605048393}
   - component: {fileID: 201038266802186838}
   - component: {fileID: 1942380357894555399}
+  - component: {fileID: 9130894243203892917}
   m_Layer: 0
   m_Name: Skeleton_Minion
   m_TagString: Monster
@@ -2525,10 +2526,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthMonster: {fileID: 1942380357894555399}
+  moveMonster: {fileID: 9130894243203892917}
   speed: 1
   despawnDelay: 5
   targetPos: {fileID: 3715654356893128121}
-  target: {fileID: 0}
+  rewardGold: 0
 --- !u!54 &-5253559364605048393
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2593,6 +2595,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthMax: 100
   health: 100
+--- !u!114 &9130894243203892917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8597690155373931424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55b8279c3cd406a408012c93696fb84a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wayTransforms: []
+  moveSpeed: 0
 --- !u!1 &9146112231771822519
 GameObject:
   m_ObjectHideFlags: 0
