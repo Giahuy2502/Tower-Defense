@@ -2,6 +2,7 @@ using System;
 using _Asset.Scripts.MyAsset;
 using UnityEngine;
 
+[RequireComponent(typeof(TowerAnimation))]
 public class TowerAttack : MonoBehaviour
 {
     [Header("Tower Attack Settings")]
@@ -10,7 +11,7 @@ public class TowerAttack : MonoBehaviour
     [SerializeField] private float timeBetweenBullets = 1f;
     [SerializeField] private float damage;
     [SerializeField] private float range = 15f;
-
+    private TowerAnimation anim;
     private BaseTower baseTower;
     private float fireCountdown;
     private float rotateSpeed;
@@ -25,6 +26,7 @@ public class TowerAttack : MonoBehaviour
     private void Awake()
     {
         baseTower = GetComponent<BaseTower>();
+        anim = GetComponent<TowerAnimation>();
     }
 
     private void Start()
@@ -49,7 +51,7 @@ public class TowerAttack : MonoBehaviour
         fireCountdown -= Time.deltaTime;
         if (fireCountdown <= 0f)
         {
-            AttackMonster(targetMonster);
+            Attack();
             fireCountdown = timeBetweenBullets;
         }
     }
@@ -85,16 +87,20 @@ public class TowerAttack : MonoBehaviour
         return null;
     }
 
-    private void AttackMonster(GameObject target)
+    private void Attack()
     {
-        if (target == null) return;
+        anim.SetAttack();
+    }
+    private void SpawnBullet() // this is a animation event
+    {
+        if (targetMonster == null) return;
 
         var newBullet = BulletPool.instance.GetObjectFromPool(TowerType.Runeblast, barrel.transform.position, barrel.transform.rotation);
         newBullet.transform.rotation = barrel.transform.rotation;
 
         var bullet = newBullet.GetComponent<BaseBullet>();
         bullet.Damage = this.damage;
-        bullet.TargetMonster = target;
+        bullet.TargetMonster = this.targetMonster;
     }
 
     private void RotateBarrelToTarget()
