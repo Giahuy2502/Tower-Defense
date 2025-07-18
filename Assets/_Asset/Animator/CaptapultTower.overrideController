@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CaptapultTower
+  m_Controller: {fileID: 9100000, guid: 3a3550e83ab71894abe3c9afff4dc29a, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 73143c5b56789074aa8b7c1ba1dd27d0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 73143c5b56789074aa8b7c1ba1dd27d0, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a8ab68796f2788e4d91be463af6a017b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 497467345e97b1a439fe3002bc84a518, type: 2}

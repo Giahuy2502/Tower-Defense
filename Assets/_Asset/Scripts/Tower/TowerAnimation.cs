@@ -11,6 +11,15 @@ public class TowerAnimation : MonoBehaviour
         SetTrigger("IsAttack");
     }
 
+    public void SetTowerDisappear()
+    {
+        
+    }
+
+    public void SetTowerAppear()
+    {
+        
+    }
     private void SetBool(string name, bool value)
     {
         animator.SetBool(name, value);
