@@ -6,8 +6,8 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CannonTower
+  m_Name: CrossbowTower
   m_Controller: {fileID: 9100000, guid: 3a3550e83ab71894abe3c9afff4dc29a, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: a8ab68796f2788e4d91be463af6a017b, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: e6d6842f060da3f49bb166042a2262e9, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 001d84a9a7bd12e42b4756c3d791a238, type: 2}
