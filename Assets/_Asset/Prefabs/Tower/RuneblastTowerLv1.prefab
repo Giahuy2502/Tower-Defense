@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2680241681386861282}
   - component: {fileID: 8410674550759743727}
   - component: {fileID: 7675731815952266054}
+  - component: {fileID: 411954478605925080}
+  - component: {fileID: 7873708818743819027}
   m_Layer: 0
   m_Name: RuneblastTowerLv1
   m_TagString: Tower
@@ -71,12 +73,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerType: 0
   towerLevel: 1
-  baseTowerHealth: 100
   baseTowerDamage: 20
   rotateSpeed: 5
+  baseTowerRange: 0
+  upgradeCost: 0
   barrel: {fileID: 7685602998912000509}
   towerAttack: {fileID: 7675731815952266054}
-  activeMonsters: []
 --- !u!114 &7675731815952266054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,6 +95,41 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1248053551054404107, guid: 2494b15331cc9734583a007be7471cb4, type: 3}
   timeBetweenBullets: 1
   damage: 0
+  range: 0
+--- !u!114 &411954478605925080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3242401941149706617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84a5f20c131de84c8ccd3fe395e8a4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 7873708818743819027}
+--- !u!95 &7873708818743819027
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3242401941149706617}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3a3550e83ab71894abe3c9afff4dc29a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &119314529439642732
 PrefabInstance:
   m_ObjectHideFlags: 0

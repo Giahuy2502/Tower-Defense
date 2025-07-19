@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: -8283828178954449156}
   - component: {fileID: -6471389133562620731}
   - component: {fileID: 3117885141643777610}
+  - component: {fileID: 5751967049626964273}
+  - component: {fileID: 2354442491231540117}
   m_Layer: 0
   m_Name: RuneblastTowerLv4
   m_TagString: Tower
@@ -48,14 +50,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2defb66cdf479428518b0a4ea2e7fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerName: 
+  towerType: 0
   towerLevel: 4
-  baseTowerHealth: 100
   baseTowerDamage: 20
   rotateSpeed: 5
+  baseTowerRange: 0
+  upgradeCost: 0
   barrel: {fileID: 7575103348462649617}
   towerAttack: {fileID: -6471389133562620731}
-  activeMonsters: []
 --- !u!114 &-6471389133562620731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +74,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1248053551054404107, guid: 2494b15331cc9734583a007be7471cb4, type: 3}
   timeBetweenBullets: 1
   damage: 0
+  range: 0
 --- !u!65 &3117885141643777610
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -93,6 +96,40 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.3897727, z: 1}
   m_Center: {x: 0, y: 0.67820454, z: 0}
+--- !u!114 &5751967049626964273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7291028237268089429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84a5f20c131de84c8ccd3fe395e8a4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 2354442491231540117}
+--- !u!95 &2354442491231540117
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7291028237268089429}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3a3550e83ab71894abe3c9afff4dc29a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1821507223553612308
 PrefabInstance:
   m_ObjectHideFlags: 0

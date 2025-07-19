@@ -10,7 +10,7 @@ public class TowerAttack : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float timeBetweenBullets = 1f;
     [SerializeField] private float damage;
-    [SerializeField] private float range = 15f;
+    [SerializeField] private float range = 0f;
     private TowerAnimation anim;
     private BaseTower baseTower;
     private float fireCountdown;
