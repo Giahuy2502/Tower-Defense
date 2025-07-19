@@ -18,6 +18,8 @@ public class BaseTower : MonoBehaviour
     [SerializeField] protected GameObject barrel;
     [SerializeField] protected TowerAttack towerAttack;
     
+    private TowerInfo towerInfo;
+    private bool isInitialized = false;
     private MapManager mapManager => MapManager.instance;
     private EconomySystem economySystem => EconomySystem.instance;
     public int TowerLevel
@@ -50,20 +52,39 @@ public class BaseTower : MonoBehaviour
         set => baseTowerDamage = value;
     }
 
+    public TowerInfo Info
+    {
+        get => towerInfo;
+        set => towerInfo = value;
+    }
+
 
     protected void Start()
     {
         
     }
+    protected void OnMouseDown()
+    {
+        if (!isInitialized) return;
+        SelectedTower();
+    }
+
 
     public void InitializeTower(TowerInfo towerInfo)
     {
+        this.towerInfo = towerInfo;
         towerLevel = towerInfo.level;
         baseTowerRange = towerInfo.range;
         baseTowerDamage = towerInfo.damage;
         upgradeCost = towerInfo.upgradeCost;
         economySystem.BuyTower(towerInfo);
         EventSystem.Invoke(EventName.UpdateGoldTxt);
+        isInitialized = true;
     }
 
+    public void SelectedTower()
+    {
+        EventSystem.Invoke<BaseTower>(EventName.SelectTower,this);
+    }
+    
 }

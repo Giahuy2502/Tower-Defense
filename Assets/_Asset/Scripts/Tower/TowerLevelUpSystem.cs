@@ -8,8 +8,18 @@ public class TowerLevelUpSystem : MonoBehaviour
 {
     [SerializeField] private TowerData towerData;
     [SerializeField] private GameObject towerToUpdate;
-    
+    public static TowerLevelUpSystem Instance;
     private Dictionary<TowerType,List<TowerInfo>> towers = new ();
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
 
     private void Start()
     {
