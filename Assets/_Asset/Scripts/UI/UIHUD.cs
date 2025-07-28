@@ -5,7 +5,7 @@ using _Asset.Scripts.MyAsset;
 using TMPro;
 using UnityEngine;
 
-public class UIInGame : MonoBehaviour
+public class UIHUD : MonoBehaviour
 {
     
     [SerializeField] private TextMeshProUGUI goldText;

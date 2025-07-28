@@ -23,6 +23,10 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadSceneAsync(1);
     }
 
+    public void OnHome()
+    {
+        SceneManager.LoadScene(0);
+    }
     public void EndGame()
     {
         
@@ -30,7 +34,12 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
-        
+        Time.timeScale = 0;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
     }
 
     public void ExitGame()
