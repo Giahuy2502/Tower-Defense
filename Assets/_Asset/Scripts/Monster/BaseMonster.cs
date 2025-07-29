@@ -46,6 +46,7 @@ public class BaseMonster : MonoBehaviour
         healthMonster.HealthMax = monsterData.monsterHealth;
         moveMonster.MoveSpeed = monsterData.monsterSpeed;
         rewardGold = monsterSpawnInfo.rewardGold;
+        EventSystem.Invoke(EventName.UpdateMonsterTxt);
     }
 
     protected virtual void Update()
@@ -74,12 +75,12 @@ public class BaseMonster : MonoBehaviour
     protected virtual void Die()
     {
         currentState = MonsterState.Die;
-
         moveMonster.StopMove();
         economySystem.IncreaseGold(rewardGold);
         PlayDeathAnimation();
         mapManager.RemoveFromManager(gameObject);
         EventSystem.Invoke(EventName.UpdateGoldTxt);
+        EventSystem.Invoke(EventName.UpdateMonsterTxt);
         Invoke(nameof(Despawn), despawnDelay);
     }
 

@@ -70,6 +70,7 @@ public class MoveMonster : MonoBehaviour
     public virtual void ReachTarget()
     {
         mapManager.RemoveFromManager(gameObject);
+        EventSystem.Invoke(EventName.UpdateMonsterTxt);
         MonsterPool.instance.ReturnObjectToPool(gameObject);
         Debug.Log("Monster reached target");
     }

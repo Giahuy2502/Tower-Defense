@@ -54,7 +54,6 @@ public class MonsterPool : EasyObjectPool
 
     public override void OnReturn(GameObject obj)
     {
-        mapManager.ActiveMonsters.Remove(obj);
-        mapManager.MonsterCount--;
+        
     }
 }
