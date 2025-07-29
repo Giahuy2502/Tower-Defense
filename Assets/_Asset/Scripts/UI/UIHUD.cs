@@ -18,6 +18,6 @@ public class UIHUD : MonoBehaviour
 
     public void UpdateGoldTxt()
     {
-        goldText.text = "Gold: " + economySystem.Gold;
+        goldText.text = economySystem.Gold.ToString();
     }
 }
