@@ -8,6 +8,7 @@ using static GameUltis;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private Button pauseButton;
+    [SerializeField] private GameObject buildTowerPanel;
     [Header("Pause Panel")]
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private Button resumeButton;
@@ -29,18 +30,22 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Pause Panel OnPause");
         Show(pausePanel);
+        Hide(buildTowerPanel);
         gameManager.PauseGame();
     }
     private void OnHome()
     {
         gameManager.ResumeGame();
         gameManager.OnHome();
+        Hide(pausePanel);
+        Show(buildTowerPanel);
     }
 
     private void OnResume()
     {
         gameManager.ResumeGame();
         Hide(pausePanel);
+        Show(buildTowerPanel);
     }
 
     private void OnExit()

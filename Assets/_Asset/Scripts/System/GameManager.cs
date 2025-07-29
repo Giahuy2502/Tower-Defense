@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadScene(1);
     }
 
     public void OnHome()
