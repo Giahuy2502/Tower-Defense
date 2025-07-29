@@ -11,7 +11,6 @@ public class UITowerInfo : MonoBehaviour
     [SerializeField] private TextMeshProUGUI towerNameText;
     [SerializeField] private TextMeshProUGUI towerDamageText;
     [SerializeField] private TextMeshProUGUI towerRangeText;
-    [SerializeField] private Button updateButton;
     private TowerInfo currentTowerInfo;
 
     public TowerInfo CurrentTowerInfo
@@ -23,7 +22,6 @@ public class UITowerInfo : MonoBehaviour
     private void Awake()
     {
         exitButton.onClick.AddListener(OnExit);
-        updateButton.onClick.AddListener(OnUpdateTower);
     }
 
     private void OnEnable()
@@ -41,10 +39,5 @@ public class UITowerInfo : MonoBehaviour
     public void OnExit()
     {
         Hide(gameObject);
-    }
-
-    public void OnUpdateTower()
-    {
-        
     }
 }
