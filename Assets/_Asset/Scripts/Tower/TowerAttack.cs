@@ -15,7 +15,7 @@ public class TowerAttack : MonoBehaviour
     private BaseTower baseTower;
     private float fireCountdown;
     private float rotateSpeed;
-    private GameObject targetMonster;
+    [SerializeField]private GameObject targetMonster;
 
     public float Damage
     {
@@ -107,7 +107,8 @@ public class TowerAttack : MonoBehaviour
     {
         if (barrel == null || targetMonster == null) return;
 
-        Vector3 direction = (targetMonster.transform.position - barrel.transform.position).normalized;
+        var baseMonster = targetMonster.GetComponent<BaseMonster>();
+        Vector3 direction = (baseMonster.TargetPos.position - barrel.transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
         barrel.transform.rotation = Quaternion.Slerp(barrel.transform.rotation, lookRotation, Time.deltaTime * rotateSpeed);
     }
@@ -120,12 +121,28 @@ public class TowerAttack : MonoBehaviour
     
     private bool IsBarrelFacingTarget()
     {
-        if (barrel == null || targetMonster == null) return false;
+        if (barrel == null || targetMonster == null)
+        {
+            return false;
+        }
 
-        Vector3 directionToTarget = (targetMonster.transform.position - barrel.transform.position).normalized;
-        float angle = Vector3.Angle(barrel.transform.forward, directionToTarget);
+        var baseMonster = targetMonster.GetComponent<BaseMonster>();
+        if (baseMonster == null || baseMonster.TargetPos == null)
+        {
+            return false;
+        }
+        
+        Vector3 toTarget = baseMonster.TargetPos.position - barrel.transform.position;
+        toTarget.y = 0;
+        toTarget.Normalize();
+        
+        Vector3 barrelForward = barrel.transform.forward;
+        barrelForward.y = 0;
+        barrelForward.Normalize();
+        
+        float angle = Vector3.Angle(barrelForward, toTarget);
 
-        return angle < 5f;
+        return angle < 10f;
     }
 
 }

@@ -689,7 +689,7 @@ MonoBehaviour:
   moveMonster: {fileID: 6396867676828569124}
   speed: 1
   despawnDelay: 5
-  targetPos: {fileID: 3728487324636316823}
+  targetPos: {fileID: 7122127080001524804}
   rewardGold: 0
 --- !u!1 &1319331108269971732
 GameObject:
