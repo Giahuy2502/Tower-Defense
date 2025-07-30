@@ -1004,6 +1004,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1418203980}
     - target: {fileID: 5981461655106256166, guid: c5b22a1db96d1494e9b2d1fe4e6f72b0, type: 3}
+      propertyPath: maxMonstersReached
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981461655106256166, guid: c5b22a1db96d1494e9b2d1fe4e6f72b0, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
       objectReference: {fileID: 6584506512331452939}

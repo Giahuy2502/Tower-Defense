@@ -10,9 +10,18 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private int currentWave ;
     [SerializeField] private LevelDatabase levelData;
     [SerializeField] private LevelConfig currentLevel;
+
+    [SerializeField] private int numberOfAvailabeMonsters = 0;
     public static WaveManager instance;
     private MapManager mapManager => MapManager.instance;
     private MonsterPool monsterPool => MonsterPool.instance;
+
+    public int NumberOfAvailabeMonsters
+    {
+        get => numberOfAvailabeMonsters;
+        set => numberOfAvailabeMonsters = value;
+    }
+
     private Coroutine WaveCoroutine;
     private void Awake()
     {
@@ -31,6 +40,7 @@ public class WaveManager : MonoBehaviour
     {
         level = mapManager.level;
         currentLevel = levelData.LevelList[level-1];
+        numberOfAvailabeMonsters = GetTotalMonstersInLevel();
     }
     IEnumerator StartWave(EnemyWave wave)
     {
@@ -60,12 +70,25 @@ public class WaveManager : MonoBehaviour
 
     private void Update()
     {
-        if (mapManager.MonsterCount <= 0 && WaveCoroutine == null && currentWave < currentLevel.enemyWaves.Count)
+        if (mapManager.ActiveMonsterCount <= 0 && WaveCoroutine == null && currentWave < currentLevel.enemyWaves.Count)
         {
             // Debug.Log($"Waves : {currentWave}");
             WaveCoroutine = StartCoroutine(StartWave(currentLevel.enemyWaves[currentWave]));
             currentWave++;
         }
+    }
+
+    private int GetTotalMonstersInLevel()
+    {
+        var totalMonster = 0;
+        foreach (var enemyWave in currentLevel.enemyWaves)
+        {
+            foreach (var enemySpawnInfo in enemyWave.enemySpawns)
+            {
+                totalMonster += enemySpawnInfo.spawnCount;
+            }
+        }
+        return totalMonster;
     }
 
 }

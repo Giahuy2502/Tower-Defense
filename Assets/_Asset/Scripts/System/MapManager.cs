@@ -3,17 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using _Asset.Scripts.MyAsset;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 using static GameUltis;
 
 public class MapManager : MonoBehaviour
 {
     public static MapManager instance;
-    [Header("Game Stats")] public int level;
-    [SerializeField] private int monsterCount;
-    [SerializeField] private int maxMonsterCount;
-    [SerializeField] private List<GameObject> monsterPrefabs;
+    [SerializeField] private int activeMonsterCount;
+    [Header("Game Stats")] 
+    public int level;
     [SerializeField] private List<GameObject> activeMonsters;
+    [SerializeField] private int monstersReachedCount;
+    [SerializeField] private int maxMonstersReached;
     [Header("AI Navigation")]
     [SerializeField] private Transform startPos;
     [SerializeField] private Transform endPos;
@@ -23,6 +25,8 @@ public class MapManager : MonoBehaviour
     [SerializeField] private List<MapTag> mapTags = new List<MapTag>();
     [SerializeField] private List<GameObject> mapObjects;
     private GridData gridData = new();
+    private WaveManager waveManager => WaveManager.instance;
+    private GameManager gameManager => GameManager.instance;
     public Transform StartPos
     {
         get => startPos;
@@ -35,10 +39,10 @@ public class MapManager : MonoBehaviour
         set => endPos = value;
     }
 
-    public int MonsterCount
+    public int ActiveMonsterCount
     {
-        get => monsterCount;
-        set => monsterCount = value;
+        get => activeMonsterCount;
+        set => activeMonsterCount = value;
     }
 
     public List<GameObject> ActiveMonsters
@@ -59,6 +63,12 @@ public class MapManager : MonoBehaviour
         set => gridData = value;
     }
 
+    public int MonstersReachedCount
+    {
+        get => monstersReachedCount;
+        set => monstersReachedCount = value;
+    }
+
     private void Awake()
     {
         if (instance != null)
@@ -69,16 +79,34 @@ public class MapManager : MonoBehaviour
         instance = this;
         SetGridData();
     }
+    
 
-    void Start()
+    void Update()
     {
-        monsterCount = 0;
+        if(gameManager == null) Debug.Log("Game Manager is null");
+        if(waveManager == null) Debug.Log("Wave Manager is null");
     }
 
     public void RemoveFromManager(GameObject monster)
     {
-        monsterCount--;
+        activeMonsterCount--;
+        waveManager.NumberOfAvailabeMonsters--;
         ActiveMonsters.Remove(monster);
+        if (waveManager.NumberOfAvailabeMonsters <= 0)
+        {
+            gameManager.WinGame();
+        }
+    }
+
+    public void UpdateMonsterReachedCount(GameObject monster)
+    {
+        monstersReachedCount+=1;
+        if (monstersReachedCount >= maxMonstersReached)
+        {
+            gameManager.LoseGame();
+            return;
+        }
+        RemoveFromManager(monster);
     }
 
     private void SetGridData()

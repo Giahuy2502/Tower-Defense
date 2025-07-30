@@ -47,7 +47,7 @@ public class MonsterPool : EasyObjectPool
     public override void OnSpawn(GameObject obj)
     {
         mapManager.ActiveMonsters.Add(obj);
-        mapManager.MonsterCount++;
+        mapManager.ActiveMonsterCount++;
         var monsterBase = obj.GetComponent<BaseMonster>();
         monsterBase.Initialize(spawnInfo);
     }

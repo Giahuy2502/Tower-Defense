@@ -11,7 +11,7 @@ public class UIHUD : MonoBehaviour
     [SerializeField] private TextMeshProUGUI goldText;
     [SerializeField] private TextMeshProUGUI monstersText;
     private EconomySystem economySystem => EconomySystem.instance;
-    private MapManager mapManager => MapManager.instance;
+    private WaveManager waveManager => WaveManager.instance;
     private void Awake()
     {
         EventSystem.Subscribe(EventName.UpdateGoldTxt,UpdateGoldTxt);
@@ -25,7 +25,7 @@ public class UIHUD : MonoBehaviour
 
     private void UpdateMonsterTxt()
     {
-        monstersText.text = mapManager.MonsterCount.ToString();
+        monstersText.text = waveManager.NumberOfAvailabeMonsters.ToString();
     }
     private void OnDestroy()
     {

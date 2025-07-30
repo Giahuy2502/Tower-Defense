@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Asset.Scripts.MyAsset;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,10 +28,6 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
-    public void EndGame()
-    {
-        
-    }
 
     public void PauseGame()
     {
@@ -51,4 +48,15 @@ public class GameManager : MonoBehaviour
 #endif
     }
 
+    public void WinGame()
+    {
+        Debug.Log("You Win!");
+        EventSystem.Invoke(EventName.WinGame);
+    }
+
+    public void LoseGame()
+    {
+        Debug.Log("You Lose!");
+        EventSystem.Invoke(EventName.LoseGame);
+    }
 }
