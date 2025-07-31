@@ -15,6 +15,7 @@ public class MapManager : MonoBehaviour
     public int level;
     [SerializeField] private List<GameObject> activeMonsters;
     [SerializeField] private int monstersReachedCount;
+    [SerializeField] private int defeatedMonsterCount;
     [SerializeField] private int maxMonstersReached;
     [Header("AI Navigation")]
     [SerializeField] private Transform startPos;
@@ -67,6 +68,12 @@ public class MapManager : MonoBehaviour
     {
         get => monstersReachedCount;
         set => monstersReachedCount = value;
+    }
+
+    public int DefeatedMonsterCount
+    {
+        get => defeatedMonsterCount;
+        set => defeatedMonsterCount = value;
     }
 
     private void Awake()

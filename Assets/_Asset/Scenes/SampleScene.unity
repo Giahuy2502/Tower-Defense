@@ -1005,7 +1005,7 @@ PrefabInstance:
       objectReference: {fileID: 1418203980}
     - target: {fileID: 5981461655106256166, guid: c5b22a1db96d1494e9b2d1fe4e6f72b0, type: 3}
       propertyPath: maxMonstersReached
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5981461655106256166, guid: c5b22a1db96d1494e9b2d1fe4e6f72b0, type: 3}
       propertyPath: waypoints.Array.data[0]
@@ -2181,6 +2181,7 @@ GameObject:
   - component: {fileID: 461707681}
   - component: {fileID: 461707680}
   - component: {fileID: 461707679}
+  - component: {fileID: 461707683}
   m_Layer: 5
   m_Name: NotificationCanvas
   m_TagString: Untagged
@@ -2272,6 +2273,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &461707683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461707678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e9e45a49ec5bb449289fdb6b7bbb0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  losePanel: {fileID: 1739062665}
+  winPanel: {fileID: 2137183178}
 --- !u!1001 &474477786
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2945,6 +2960,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.19999999, z: 1}
   m_Center: {x: 0, y: 0.099999994, z: 0}
+--- !u!1 &525046089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 525046090}
+  m_Layer: 0
+  m_Name: PanelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &525046090
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525046089}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 24.097107, y: 479.13617, z: -5.2744412}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &557091126
 GameObject:
   m_ObjectHideFlags: 0
@@ -9256,8 +9302,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -140, y: -83}
-  m_SizeDelta: {x: 450, y: 100}
+  m_AnchoredPosition: {x: 9.9451, y: -83}
+  m_SizeDelta: {x: 749.89, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1487115430
 MonoBehaviour:
@@ -9279,7 +9325,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Monsters Defeated:'
+  m_text: 'Monsters Defeated: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9306,14 +9352,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45.2
+  m_fontSize: 48
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 48
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -9796,7 +9842,7 @@ GameObject:
   - component: {fileID: 1567057970}
   - component: {fileID: 1567057969}
   m_Layer: 5
-  m_Name: Lose
+  m_Name: LosePopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10355,8 +10401,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -140, y: 4}
-  m_SizeDelta: {x: 450, y: 100}
+  m_AnchoredPosition: {x: 9.9451, y: 4}
+  m_SizeDelta: {x: 749.89, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1678567585
 MonoBehaviour:
@@ -10378,7 +10424,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Gold collected:'
+  m_text: 'Gold collected: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10749,6 +10795,7 @@ GameObject:
   - component: {fileID: 1739062662}
   - component: {fileID: 1739062664}
   - component: {fileID: 1739062663}
+  - component: {fileID: 1739062665}
   m_Layer: 5
   m_Name: LosePanel
   m_TagString: Untagged
@@ -10814,6 +10861,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739062661}
   m_CullTransparentMesh: 1
+--- !u!114 &1739062665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739062661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2de4295e653c6d469f7b9183bdd2166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldCollectedText: {fileID: 1678567585}
+  monsterDefeatedText: {fileID: 1487115430}
+  homeButton: {fileID: 272933898}
+  restartButton: {fileID: 1118164662}
 --- !u!1001 &1739967959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13720,6 +13783,7 @@ GameObject:
   - component: {fileID: 2137183175}
   - component: {fileID: 2137183177}
   - component: {fileID: 2137183176}
+  - component: {fileID: 2137183178}
   m_Layer: 5
   m_Name: WinPanel
   m_TagString: Untagged
@@ -13785,6 +13849,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2137183174}
   m_CullTransparentMesh: 1
+--- !u!114 &2137183178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137183174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8634e5bc778c7c84cabce3887e69cd9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rewardText: {fileID: 762305707}
+  restartButton: {fileID: 1930623970}
+  homeButton: {fileID: 1131153806}
+  nextButton: {fileID: 1193388085}
 --- !u!1001 &526892716424234654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14285,3 +14365,4 @@ SceneRoots:
   - {fileID: 1552940288}
   - {fileID: 1680716779}
   - {fileID: 479963320}
+  - {fileID: 525046090}

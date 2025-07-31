@@ -22,6 +22,12 @@ public class WaveManager : MonoBehaviour
         set => numberOfAvailabeMonsters = value;
     }
 
+    public LevelConfig CurrentLevel
+    {
+        get => currentLevel;
+        set => currentLevel = value;
+    }
+
     private Coroutine WaveCoroutine;
     private void Awake()
     {

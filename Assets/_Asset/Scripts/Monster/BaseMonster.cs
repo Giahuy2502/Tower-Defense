@@ -79,6 +79,7 @@ public class BaseMonster : MonoBehaviour
         economySystem.IncreaseGold(rewardGold);
         PlayDeathAnimation();
         mapManager.RemoveFromManager(gameObject);
+        mapManager.DefeatedMonsterCount++;
         EventSystem.Invoke(EventName.UpdateGoldTxt);
         EventSystem.Invoke(EventName.UpdateMonsterTxt);
         Invoke(nameof(Despawn), despawnDelay);

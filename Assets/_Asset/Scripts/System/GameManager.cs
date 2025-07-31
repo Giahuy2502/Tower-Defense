@@ -59,4 +59,14 @@ public class GameManager : MonoBehaviour
         Debug.Log("You Lose!");
         EventSystem.Invoke(EventName.LoseGame);
     }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void NextLevel()
+    {
+        
+    }
 }
