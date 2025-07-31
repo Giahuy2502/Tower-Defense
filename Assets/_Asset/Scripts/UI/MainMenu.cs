@@ -20,7 +20,7 @@ public class MainMenu : MonoBehaviour
     private void OnStartGame()
     {
         // Debug.Log("Call StartGame");
-        gameManager.StartGame();
+        gameManager.Play();
     }
 
     private void OnExitGame()

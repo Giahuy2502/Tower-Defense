@@ -86,7 +86,12 @@ public class MapManager : MonoBehaviour
         instance = this;
         SetGridData();
     }
-    
+
+
+    private void Start()
+    {
+        gameManager.StartGame();
+    }
 
     void Update()
     {

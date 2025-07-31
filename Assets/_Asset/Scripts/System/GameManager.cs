@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void StartGame()
+    public void Play()
     {
         SceneManager.LoadScene(1);
     }
@@ -68,5 +68,10 @@ public class GameManager : MonoBehaviour
     public void NextLevel()
     {
         
+    }
+
+    public void StartGame()
+    {
+        EventSystem.Invoke(EventName.StartGame);
     }
 }

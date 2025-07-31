@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using _Asset.Scripts.MyAsset;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
@@ -15,6 +16,7 @@ public class WaveManager : MonoBehaviour
     public static WaveManager instance;
     private MapManager mapManager => MapManager.instance;
     private MonsterPool monsterPool => MonsterPool.instance;
+    private EconomySystem economySystem => EconomySystem.instance;
 
     public int NumberOfAvailabeMonsters
     {
@@ -38,15 +40,25 @@ public class WaveManager : MonoBehaviour
         }
         instance = this;
     }
+
     private void Start()
     {
-        GetData();
+        EventSystem.Subscribe(EventName.StartGame,GetData);
+        EventSystem.Subscribe(EventName.StartGame,economySystem.StartGame);
     }
+
+    private void OnDestroy()
+    {
+        EventSystem.Unsubscribe(EventName.StartGame,GetData);
+        EventSystem.Unsubscribe(EventName.StartGame,economySystem.StartGame);
+    }
+
     private void GetData()
     {
         level = mapManager.level;
         currentLevel = levelData.LevelList[level-1];
         numberOfAvailabeMonsters = GetTotalMonstersInLevel();
+        Debug.Log("Get Data");
     }
     IEnumerator StartWave(EnemyWave wave)
     {

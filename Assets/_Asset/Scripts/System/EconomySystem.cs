@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using _Asset.Scripts.MyAsset;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -10,7 +12,7 @@ public class EconomySystem : MonoBehaviour
     [SerializeField] private int gem;
     [SerializeField] private int exp;
     public static EconomySystem instance;
-
+    private WaveManager waveManager => WaveManager.instance;
     public int Gold
     {
         get => gold;
@@ -26,6 +28,16 @@ public class EconomySystem : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+    
+
+    public void StartGame()
+    {
+        gold = 0;
+        var currentLevel = waveManager.CurrentLevel;
+        gold += currentLevel.rewards.startingGold;
+        EventSystem.Invoke(EventName.UpdateGoldTxt);
+        Debug.Log("StartGame");
     }
 
     public void IncreaseGold(int amount)
@@ -60,4 +72,9 @@ public class EconomySystem : MonoBehaviour
         IncreaseGem(reward.rewardGems);
         IncreaseExp(reward.rewardExp);
     }
+
+    // public void ResetGold()
+    // {
+    //     gold = 0;
+    // }
 }
