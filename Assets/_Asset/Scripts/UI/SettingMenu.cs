@@ -8,7 +8,6 @@ using static GameUltis;
 public class SettingMenu : MonoBehaviour
 {
     [SerializeField] private Button settingBtn;
-    [SerializeField] private GameObject buildTowerPanel;
     [Header("Setting Panel")]
     [SerializeField] private GameObject settingPanel;
     [SerializeField] private Button closeBtn;
@@ -48,27 +47,25 @@ public class SettingMenu : MonoBehaviour
     private void OnSetting()
     {
         Debug.Log("Pause Panel OnPause");
+        gameManager.PauseGame();
         Show(settingPanel);
-        Hide(buildTowerPanel);
     }
 
     private void OnClose()
     {
+        gameManager.ResumeGame();
         Hide(settingPanel);
-        Show(buildTowerPanel);
     }
 
     private void OnTutorial()
     {
         Debug.Log("Show Tutorial Panel");
         Hide(settingPanel);
-        Show(buildTowerPanel);
     }
     private void OnLogout()
     {
         Debug.Log("Logout game");
         Hide(settingPanel);
-        Show(buildTowerPanel);
     }
     
 }

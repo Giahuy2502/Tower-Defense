@@ -21,12 +21,14 @@ public class GameManager : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
+        OnLoading();
     }
 
     public void OnHome()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
+        OnLoading();
     }
 
     public void PauseGame()
@@ -66,6 +68,7 @@ public class GameManager : MonoBehaviour
         EventSystem.Invoke(EventName.RestartGame);
         ResumeGame();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        OnLoading();
     }
 
     public void NextLevel()
@@ -76,5 +79,11 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         EventSystem.Invoke(EventName.StartGame);
+    }
+    
+    private void OnLoading()
+    {
+        SceneManager.LoadSceneAsync(0, LoadSceneMode.Additive);
+        
     }
 }
