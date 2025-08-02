@@ -76,6 +76,12 @@ public class MapManager : MonoBehaviour
         set => defeatedMonsterCount = value;
     }
 
+    public int MaxMonstersReached
+    {
+        get => maxMonstersReached;
+        set => maxMonstersReached = value;
+    }
+
     private void Awake()
     {
         if (instance != null)

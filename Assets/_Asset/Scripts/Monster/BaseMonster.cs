@@ -46,7 +46,6 @@ public class BaseMonster : MonoBehaviour
         healthMonster.HealthMax = monsterData.monsterHealth;
         moveMonster.MoveSpeed = monsterData.monsterSpeed;
         rewardGold = monsterSpawnInfo.rewardGold;
-        EventSystem.Invoke(EventName.UpdateMonsterTxt);
     }
 
     protected virtual void Update()
@@ -81,7 +80,6 @@ public class BaseMonster : MonoBehaviour
         mapManager.RemoveFromManager(gameObject);
         mapManager.DefeatedMonsterCount++;
         EventSystem.Invoke(EventName.UpdateGoldTxt);
-        EventSystem.Invoke(EventName.UpdateMonsterTxt);
         Invoke(nameof(Despawn), despawnDelay);
     }
 

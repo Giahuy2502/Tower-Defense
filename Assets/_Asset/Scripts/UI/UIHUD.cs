@@ -9,13 +9,24 @@ public class UIHUD : MonoBehaviour
 {
     
     [SerializeField] private TextMeshProUGUI goldText;
-    [SerializeField] private TextMeshProUGUI monstersText;
+    [SerializeField] private TextMeshProUGUI livesText;
+    [SerializeField] private TextMeshProUGUI gemText;
+    [SerializeField] private TextMeshProUGUI waveProcesstext;
     private EconomySystem economySystem => EconomySystem.instance;
     private WaveManager waveManager => WaveManager.instance;
+    private MapManager mapManager => MapManager.instance;
     private void Awake()
     {
         EventSystem.Subscribe(EventName.UpdateGoldTxt,UpdateGoldTxt);
-        EventSystem.Subscribe(EventName.UpdateMonsterTxt,UpdateMonsterTxt);
+        EventSystem.Subscribe(EventName.UpdateLivesTxt,UpdateLivesText);
+        EventSystem.Subscribe(EventName.UpdateWaveProcessTxt,UpdateWavesProcessText);
+    }
+
+    private void Start()
+    {
+        UpdateLivesText();
+        UpdateGoldTxt();
+        UpdateWavesProcessText();
     }
 
     private void UpdateGoldTxt()
@@ -23,13 +34,23 @@ public class UIHUD : MonoBehaviour
         goldText.text = economySystem.Gold.ToString();
     }
 
-    private void UpdateMonsterTxt()
+    private void UpdateLivesText()
     {
-        monstersText.text = waveManager.NumberOfAvailabeMonsters.ToString();
+        var maxLive = mapManager.MaxMonstersReached;
+        var currentLive = mapManager.MaxMonstersReached - mapManager.MonstersReachedCount;
+        livesText.text = currentLive + "/" + maxLive;
+    }
+
+    private void UpdateWavesProcessText()
+    {
+        var maxWaveCount = waveManager.CurrentLevel.enemyWaves.Count;
+        var currentWave = waveManager.CurrentWave + 1;
+        waveProcesstext.text = currentWave + "/" + maxWaveCount;
     }
     private void OnDestroy()
     {
         EventSystem.Unsubscribe(EventName.UpdateGoldTxt,UpdateGoldTxt);
-        EventSystem.Unsubscribe(EventName.UpdateMonsterTxt,UpdateMonsterTxt);
+        EventSystem.Unsubscribe(EventName.UpdateLivesTxt,UpdateLivesText);
+        EventSystem.Unsubscribe(EventName.UpdateWaveProcessTxt,UpdateWavesProcessText);
     }
 }

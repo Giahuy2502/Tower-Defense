@@ -30,6 +30,12 @@ public class WaveManager : MonoBehaviour
         set => currentLevel = value;
     }
 
+    public int CurrentWave
+    {
+        get => currentWave;
+        set => currentWave = value;
+    }
+
     private Coroutine WaveCoroutine;
     private void Awake()
     {
@@ -62,12 +68,12 @@ public class WaveManager : MonoBehaviour
     }
     IEnumerator StartWave(EnemyWave wave)
     {
+        EventSystem.Invoke(EventName.UpdateWaveProcessTxt);
         foreach (var monster in wave.enemySpawns)
         {
             yield return StartCoroutine(SpawnMonster(monster));
             yield return new WaitForSeconds(1.5f);
         }
-
         WaveCoroutine = null;
     }
     

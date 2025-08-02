@@ -5876,7 +5876,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goldText: {fileID: 1765745318}
-  monstersText: {fileID: 2033313246}
+  livesText: {fileID: 2033313246}
+  gemText: {fileID: 1313254378}
+  waveProcesstext: {fileID: 1101366433}
 --- !u!1 &933834891
 GameObject:
   m_ObjectHideFlags: 0
