@@ -62,6 +62,9 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        Debug.Log("You Restart!");
+        EventSystem.Invoke(EventName.RestartGame);
+        ResumeGame();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

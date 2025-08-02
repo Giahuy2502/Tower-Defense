@@ -12,6 +12,7 @@ public class PauseMenu : MonoBehaviour
     [Header("Pause Panel")]
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private Button resumeButton;
+    [SerializeField] private Button restartButton;
     [SerializeField] private Button homeButton;
     [SerializeField] private Button exitButton;
 
@@ -23,6 +24,7 @@ public class PauseMenu : MonoBehaviour
         homeButton.onClick.AddListener(OnHome);
         exitButton.onClick.AddListener(OnExit);
         resumeButton.onClick.AddListener(OnResume);
+        restartButton.onClick.AddListener(OnRestart);
         Hide(pausePanel);
     }
 
@@ -48,6 +50,12 @@ public class PauseMenu : MonoBehaviour
         Show(buildTowerPanel);
     }
 
+    public void OnRestart()
+    {
+        Hide(pausePanel);
+        Show(buildTowerPanel);
+        gameManager.RestartGame();
+    }
     private void OnExit()
     {
         gameManager.ExitGame();
