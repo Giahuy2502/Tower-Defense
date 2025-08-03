@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static GameUltis;
 public class MainMenu : MonoBehaviour
@@ -9,7 +10,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Button startbtn;
     [SerializeField] private Button exitbtn;
     [SerializeField] private Button settingbtn;
-
+    [SerializeField] private Button shopbtn;
     [SerializeField] private GameObject settingPanel;
     private GameManager gameManager => GameManager.instance;
 
@@ -18,6 +19,7 @@ public class MainMenu : MonoBehaviour
         startbtn.onClick.AddListener(OnStartGame);
         exitbtn.onClick.AddListener(OnExitGame);
         settingbtn.onClick.AddListener(OnSetting);
+        shopbtn.onClick.AddListener(OnShop);
         Hide(settingPanel);
     }
 
@@ -35,6 +37,13 @@ public class MainMenu : MonoBehaviour
 
     private void OnSetting()
     {
+        Debug.Log("OnSetting");
         Show(settingPanel);
     }
+
+    private void OnShop()
+    {
+        SceneManager.LoadSceneAsync(3,LoadSceneMode.Additive);
+    }
+    
 }

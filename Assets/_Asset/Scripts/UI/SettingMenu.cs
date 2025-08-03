@@ -32,7 +32,7 @@ public class SettingMenu : MonoBehaviour
         logoutBtn.onClick.AddListener(OnLogout);
         musicSlider.onValueChanged.AddListener(OnMusicSliderChanged);
         sfxSlider.onValueChanged.AddListener(OnSfxSliderChanged);
-        Hide(settingPanel);
+        
     }
 
     private void OnMusicSliderChanged(float value)
