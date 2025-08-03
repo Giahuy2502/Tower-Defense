@@ -10,7 +10,6 @@ public class UILoading : MonoBehaviour
 {
     [SerializeField] private Slider slider;
     [SerializeField] private float loadTime = 2.5f;
-
     private void Awake()
     {
         slider.value = 0.075f;
@@ -28,6 +27,7 @@ public class UILoading : MonoBehaviour
         if (value >= slider.maxValue)
         {
             SceneManager.UnloadSceneAsync(this.gameObject.scene);
+            SceneLoadingManager.NotifyLoadingComplete();
         }
     }
 }

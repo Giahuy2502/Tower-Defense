@@ -96,7 +96,12 @@ public class MapManager : MonoBehaviour
 
     private void Start()
     {
-        gameManager.StartGame();
+        SceneLoadingManager.OnLoadingComplete += gameManager.StartGame;
+    }
+
+    private void OnDestroy()
+    {
+        SceneLoadingManager.OnLoadingComplete -= gameManager.StartGame;
     }
 
     void Update()
