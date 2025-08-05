@@ -26,5 +26,6 @@ public class UnlockTowerService : MonoBehaviour
 
         economySystem.IncreaseGem(-cost);
         handler.OnTowerUnlocked(type, index);
+        EventSystem.Invoke(EventName.UpdateGemText);
     }
 }

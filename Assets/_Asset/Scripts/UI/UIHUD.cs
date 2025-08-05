@@ -20,6 +20,7 @@ public class UIHUD : MonoBehaviour
         EventSystem.Subscribe(EventName.UpdateGoldTxt,UpdateGoldTxt);
         EventSystem.Subscribe(EventName.UpdateLivesTxt,UpdateLivesText);
         EventSystem.Subscribe(EventName.UpdateWaveProcessTxt,UpdateWavesProcessText);
+        EventSystem.Subscribe(EventName.UpdateGemText,UpdateGemText);
     }
 
     private void Start()
@@ -27,11 +28,17 @@ public class UIHUD : MonoBehaviour
         UpdateLivesText();
         UpdateGoldTxt();
         UpdateWavesProcessText();
+        UpdateGemText();
     }
 
     private void UpdateGoldTxt()
     {
         goldText.text = economySystem.Gold.ToString();
+    }
+
+    void UpdateGemText()
+    {
+        gemText.text = economySystem.Gem.ToString();
     }
 
     private void UpdateLivesText()
@@ -52,5 +59,6 @@ public class UIHUD : MonoBehaviour
         EventSystem.Unsubscribe(EventName.UpdateGoldTxt,UpdateGoldTxt);
         EventSystem.Unsubscribe(EventName.UpdateLivesTxt,UpdateLivesText);
         EventSystem.Unsubscribe(EventName.UpdateWaveProcessTxt,UpdateWavesProcessText);
+        EventSystem.Unsubscribe(EventName.UpdateGemText,UpdateGemText);
     }
 }
