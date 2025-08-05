@@ -22,6 +22,8 @@ public class SettingMenu : MonoBehaviour
     [SerializeField] private Sprite soundIconOff;
     [SerializeField] private Sprite musicIconOn;
     [SerializeField] private Sprite musicIconOff;
+    [Header("Tutorial Panel")]
+    [SerializeField] private GameObject tutorialMenu;
     private GameManager gameManager => GameManager.instance;
     private AudioManager audioManager => AudioManager.instance;
 
@@ -33,7 +35,6 @@ public class SettingMenu : MonoBehaviour
         logoutBtn.onClick.AddListener(OnLogout);
         musicSlider.onValueChanged.AddListener(OnMusicSliderChanged);
         sfxSlider.onValueChanged.AddListener(OnSfxSliderChanged);
-        
     }
 
     private void OnMusicSliderChanged(float value)
@@ -63,12 +64,18 @@ public class SettingMenu : MonoBehaviour
     private void OnTutorial()
     {
         Debug.Log("Show Tutorial Panel");
+        Show(tutorialMenu);
         Hide(settingPanel);
     }
     private void OnLogout()
     {
         Debug.Log("Logout game");
+        gameManager.ResumeGame();
         Hide(settingPanel);
     }
-    
+
+    private void OnEnable()
+    {
+        
+    }
 }
