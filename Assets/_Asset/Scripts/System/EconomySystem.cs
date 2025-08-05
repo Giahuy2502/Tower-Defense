@@ -19,6 +19,12 @@ public class EconomySystem : MonoBehaviour
         set => gold = value;
     }
 
+    public int Gem
+    {
+        get => gem;
+        set => gem = value;
+    }
+
     private void Awake()
     {
         if (instance != null)
