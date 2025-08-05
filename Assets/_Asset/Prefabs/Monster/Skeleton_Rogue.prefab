@@ -2458,8 +2458,6 @@ Transform:
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3344919290399293970}
-  - {fileID: 3220652595041048060}
   - {fileID: 2925295105631907094}
   - {fileID: 9161508176632981944}
   - {fileID: 4418413723017227480}
@@ -2469,6 +2467,8 @@ Transform:
   - {fileID: 7543066097433209455}
   - {fileID: 1955952465559707048}
   - {fileID: 9071856328774292971}
+  - {fileID: 3220652595041048060}
+  - {fileID: 3344919290399293970}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &7306614582558331108
@@ -2537,7 +2537,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
