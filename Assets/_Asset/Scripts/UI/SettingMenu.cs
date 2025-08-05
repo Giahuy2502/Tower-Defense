@@ -23,6 +23,7 @@ public class SettingMenu : MonoBehaviour
     [SerializeField] private Sprite musicIconOn;
     [SerializeField] private Sprite musicIconOff;
     private GameManager gameManager => GameManager.instance;
+    private AudioManager audioManager => AudioManager.instance;
 
     private void Awake()
     {
@@ -38,11 +39,13 @@ public class SettingMenu : MonoBehaviour
     private void OnMusicSliderChanged(float value)
     {
         musicIcon.sprite = value <= 0 ? musicIconOff : musicIconOn;
+        audioManager.SetMusicVolume(value);
     }
 
     private void OnSfxSliderChanged(float value)
     {
         soundIcon.sprite = value <= 0 ? soundIconOff : soundIconOn;
+        audioManager.SetSfxVolume(value);
     }
     private void OnSetting()
     {
