@@ -15,6 +15,9 @@ public class GridManager : MonoBehaviour
 
     [SerializeField] private  List<GridCellObject> pathCellObjects;
     [SerializeField] private List<GridCellObject> sceneryCellObjects;
+    /// <summary>
+    /// random path cho đến khi pathCell.Count >= min path Cell.
+    /// </summary>
     private void Start()
     {
         pathGenerator = new PathGenerator(gridWidth, gridHeight);
@@ -23,6 +26,7 @@ public class GridManager : MonoBehaviour
         while (pathSize < minPathSize)
         {
             pathCells = pathGenerator.GeneratePath();
+            while(pathGenerator.GenerateCrossRoads()); // tạo nhiều ngã 4 cho đến khi không tạo thêm được.
             pathSize = pathCells.Count;
         }
         StartCoroutine(LayGridCells(pathCells));
@@ -46,7 +50,7 @@ public class GridManager : MonoBehaviour
             Quaternion yRotation = Quaternion.Euler(0, yRotate, 0);
             Instantiate(cellPrefab, new Vector3(pathCell.x, 0f, pathCell.y),yRotation);
            
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.05f);
         }
 
         yield return null;
@@ -65,7 +69,7 @@ public class GridManager : MonoBehaviour
                     var sceneryCellPrefab = sceneryCellObjects[randomScenearyCellIndex].CellPrefab;
                     var pos = new Vector3(x, 0, y);
                     Instantiate(sceneryCellPrefab, pos, Quaternion.identity);
-                    yield return new WaitForSeconds(0.1f);
+                    yield return new WaitForSeconds(0.05f);
                 }
             }
         }

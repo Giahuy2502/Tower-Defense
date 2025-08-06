@@ -21,10 +21,6 @@ public class PathGenerator
         pathCells = new();
         int y = (int)(height / 2f);
         int x = 0;
-        // for (int x = 0; x < width; x++)
-        // {
-        //     pathCells.Add(new Vector2Int(x, y));
-        // }
         while (x < width)
         {
             pathCells.Add(new Vector2Int(x, y));
@@ -100,5 +96,34 @@ public class PathGenerator
         return returnValue;
     }
 
-    // public 
+    public bool GenerateCrossRoads()
+    {
+        for (int i = 0; i < pathCells.Count; i++)
+        {
+            Vector2Int pathCell = pathCells[i];
+            if (!(pathCell.x > 3) ||!(pathCell.x < width - 4)|| !(pathCell.y > 3) || !(pathCell.y < height - 3))
+            {
+                continue;
+            }
+            if (CellIsEmpty(pathCell.x, pathCell.y + 3) && CellIsEmpty(pathCell.x + 1, pathCell.y + 3) && CellIsEmpty(pathCell.x + 2, pathCell.y + 3)
+                &&CellIsEmpty(pathCell.x-1, pathCell.y + 2) && CellIsEmpty(pathCell.x, pathCell.y + 2) && CellIsEmpty(pathCell.x + 1, pathCell.y + 2)&&CellIsEmpty(pathCell.x + 2, pathCell.y + 2)&& CellIsEmpty(pathCell.x + 3, pathCell.y + 2)
+                &&CellIsEmpty(pathCell.x-1, pathCell.y + 1) && CellIsEmpty(pathCell.x, pathCell.y + 1) && CellIsEmpty(pathCell.x + 1, pathCell.y + 1)&&CellIsEmpty(pathCell.x + 2, pathCell.y + 1)&& CellIsEmpty(pathCell.x + 3, pathCell.y + 1)
+                &&CellIsEmpty(pathCell.x+1, pathCell.y) && CellIsEmpty(pathCell.x+2, pathCell.y) && CellIsEmpty(pathCell.x+3, pathCell.y)
+                &&CellIsEmpty(pathCell.x+1, pathCell.y -1) && CellIsEmpty(pathCell.x+2, pathCell.y -1))
+            {
+                pathCells.InsertRange(i+1, new List<Vector2Int>{new Vector2Int(pathCell.x+1,pathCell.y),new Vector2Int(pathCell.x+2,pathCell.y),new Vector2Int(pathCell.x+2,pathCell.y+1),new Vector2Int(pathCell.x+2,pathCell.y+2),new Vector2Int(pathCell.x+1,pathCell.y+2),new Vector2Int(pathCell.x,pathCell.y+2),new Vector2Int(pathCell.x,pathCell.y+1)});
+                return true;
+            }
+            if (CellIsEmpty(pathCell.x+1, pathCell.y + 1) && CellIsEmpty(pathCell.x + 2, pathCell.y + 1)
+                &&CellIsEmpty(pathCell.x+1, pathCell.y) && CellIsEmpty(pathCell.x+2, pathCell.y) && CellIsEmpty(pathCell.x + 3, pathCell.y)
+                &&CellIsEmpty(pathCell.x-1, pathCell.y - 1) && CellIsEmpty(pathCell.x, pathCell.y-1) && CellIsEmpty(pathCell.x +1, pathCell.y - 1)&&CellIsEmpty(pathCell.x +2, pathCell.y -1)&& CellIsEmpty(pathCell.x +3, pathCell.y -1)
+                &&CellIsEmpty(pathCell.x-1, pathCell.y - 2) && CellIsEmpty(pathCell.x, pathCell.y-2) && CellIsEmpty(pathCell.x +1, pathCell.y - 2)&&CellIsEmpty(pathCell.x +2, pathCell.y -2)&& CellIsEmpty(pathCell.x +3, pathCell.y -2)
+                &&CellIsEmpty(pathCell.x, pathCell.y-3) && CellIsEmpty(pathCell.x+1, pathCell.y-3) && CellIsEmpty(pathCell.x+2, pathCell.y-3))
+            {
+                pathCells.InsertRange(i+1, new List<Vector2Int>{new Vector2Int(pathCell.x+1,pathCell.y),new Vector2Int(pathCell.x+2,pathCell.y),new Vector2Int(pathCell.x+2,pathCell.y-1),new Vector2Int(pathCell.x+2,pathCell.y-2),new Vector2Int(pathCell.x+1,pathCell.y-2),new Vector2Int(pathCell.x,pathCell.y-2),new Vector2Int(pathCell.x,pathCell.y-1)});
+                return true;
+            }
+        }
+        return false;
+    }
 }
