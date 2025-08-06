@@ -17655,7 +17655,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0007382442, y: -0.000015259}
+  m_AnchoredPosition: {x: 0.0007382442, y: -0.000015258789}
   m_SizeDelta: {x: 0, y: -0.00022888}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2065374531
@@ -18763,8 +18763,107 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7593083614979415019, guid: 28528b6123258e34ab87378291c51752, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 526892716424234661}
+    - targetCorrespondingSourceObject: {fileID: 7593083614979415019, guid: 28528b6123258e34ab87378291c51752, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 526892716424234660}
+    - targetCorrespondingSourceObject: {fileID: 7593083614979415019, guid: 28528b6123258e34ab87378291c51752, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 526892716424234659}
+    - targetCorrespondingSourceObject: {fileID: 7593083614979415019, guid: 28528b6123258e34ab87378291c51752, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 526892716424234658}
   m_SourcePrefab: {fileID: 100100000, guid: 28528b6123258e34ab87378291c51752, type: 3}
+--- !u!1 &526892716424234655 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7593083614979415019, guid: 28528b6123258e34ab87378291c51752, type: 3}
+  m_PrefabInstance: {fileID: 526892716424234654}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &526892716424234656 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7620790922130251926, guid: 28528b6123258e34ab87378291c51752, type: 3}
+  m_PrefabInstance: {fileID: 526892716424234654}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &526892716424234657 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3015052952242580272, guid: 28528b6123258e34ab87378291c51752, type: 3}
+  m_PrefabInstance: {fileID: 526892716424234654}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &526892716424234658
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526892716424234655}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99934995, y: 0.60853887, z: 1}
+  m_Center: {x: 0, y: 0.30426943, z: 0}
+--- !u!114 &526892716424234659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526892716424234655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4225509cc78486942bf7b005d25da5df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrel: {fileID: 526892716424234656}
+  bulletPrefab: {fileID: 0}
+  timeBetweenBullets: 1
+  damage: 20
+  range: 0
+  targetMonster: {fileID: 0}
+--- !u!114 &526892716424234660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526892716424234655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84a5f20c131de84c8ccd3fe395e8a4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 526892716424234657}
+--- !u!114 &526892716424234661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526892716424234655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cefc1484aaf0652498a8675168777afb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerType: 1
+  towerLevel: 0
+  baseTowerDamage: 20
+  rotateSpeed: 5
+  baseTowerRange: 15
+  upgradeCost: 0
+  barrel: {fileID: 0}
+  towerAttack: {fileID: 526892716424234659}
 --- !u!1001 &1098774478074973190
 PrefabInstance:
   m_ObjectHideFlags: 0
