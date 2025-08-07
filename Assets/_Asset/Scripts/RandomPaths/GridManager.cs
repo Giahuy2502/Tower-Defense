@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 
 public class GridManager : MonoBehaviour
@@ -12,7 +15,7 @@ public class GridManager : MonoBehaviour
     [SerializeField] private int gridHeight = 8;
     [SerializeField] private int minPathSize = 25;
     [SerializeField] private GameObject pathTile;
-
+    [SerializeField] private GameObject enviromentObject;
     [SerializeField] private  List<GridCellObject> pathCellObjects;
     [SerializeField] private List<GridCellObject> sceneryCellObjects;
     /// <summary>
@@ -48,8 +51,8 @@ public class GridManager : MonoBehaviour
             var cellPrefab = pathCellObjects[neighbourValue].CellPrefab;
             var yRotate = pathCellObjects[neighbourValue].YRotation;
             Quaternion yRotation = Quaternion.Euler(0, yRotate, 0);
-            Instantiate(cellPrefab, new Vector3(pathCell.x, 0f, pathCell.y),yRotation);
-           
+            var pathCellObj = Instantiate(cellPrefab, new Vector3(pathCell.x, 0f, pathCell.y),yRotation);
+            pathCellObj.transform.parent = enviromentObject.transform;
             yield return new WaitForSeconds(0.05f);
         }
 
@@ -68,10 +71,35 @@ public class GridManager : MonoBehaviour
                     var randomScenearyCellIndex = Random.Range(0, sceneryCellObjects.Count);
                     var sceneryCellPrefab = sceneryCellObjects[randomScenearyCellIndex].CellPrefab;
                     var pos = new Vector3(x, 0, y);
-                    Instantiate(sceneryCellPrefab, pos, Quaternion.identity);
+                    var sceneryCellObj= Instantiate(sceneryCellPrefab, pos, Quaternion.identity);
+                    sceneryCellObj.transform.parent = enviromentObject.transform;
                     yield return new WaitForSeconds(0.05f);
                 }
             }
         }
     }
+
+    [ContextMenu("Save Map To File")]
+    public void SaveMapToFile()
+    {
+#if UNITY_EDITOR
+        if (enviromentObject == null)
+        {
+            Debug.LogWarning("Không có đối tượng environment để lưu.");
+            return;
+        }
+        string folderPath = "Assets/_Asset/Prefabs/Map";
+        if (!AssetDatabase.IsValidFolder(folderPath))
+        {
+            AssetDatabase.CreateFolder("Assets/_Asset/Prefabs", "Map");
+        }
+        string prefabPath = AssetDatabase.GenerateUniqueAssetPath($"{folderPath}/GeneratedMap.prefab"); // GeneratedMap.prefab là tên prefabs , có thể tùy chỉnh trong code sau.
+        PrefabUtility.SaveAsPrefabAsset(enviromentObject, prefabPath);
+
+        Debug.Log($"✅ Saved map prefab at: {prefabPath}");
+#else
+    Debug.LogWarning("SaveMapToFile chỉ hoạt động trong Editor.");
+#endif
+    }
+
 }
