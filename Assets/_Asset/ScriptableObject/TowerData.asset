@@ -15,121 +15,121 @@ MonoBehaviour:
   towers:
   - towerType: 0
     towers:
-    - towerName: RuneblastTowerLv1
+    - towerName: RuneBlastLv1
       level: 1
       damage: 20
       range: 4
       upgradeCost: 1
       upgradeTime: 0
-      towerPrefab: {fileID: 3242401941149706617, guid: 2d773145c02c7fa4dab19d04461ce648, type: 3}
-    - towerName: RuneblastTowerLv2
+      towerPrefab: {fileID: 2529684217533861846, guid: bf300315d38dd49419fbfc755ede2a95, type: 3}
+    - towerName: RuneBlastLv2
       level: 2
       damage: 20
       range: 4
       upgradeCost: 2
       upgradeTime: 0
-      towerPrefab: {fileID: 6263582222475886615, guid: 912f010f678c6114cb89ee1e2d444494, type: 3}
-    - towerName: RuneblastTowerLv3
+      towerPrefab: {fileID: 7092878893313118993, guid: efec2ff7e05e3824aa597e0992271395, type: 3}
+    - towerName: RuneBlastLv3
       level: 3
       damage: 20
       range: 4
       upgradeCost: 3
       upgradeTime: 0
-      towerPrefab: {fileID: 952400938208229317, guid: 0eadc67bf1c61c9498839be6803b3f3f, type: 3}
-    - towerName: RuneblastTowerLv4
+      towerPrefab: {fileID: 7155274906446370179, guid: bf59808ec7dc1324aaa5f4209bedb668, type: 3}
+    - towerName: RuneBlastLv4
       level: 4
       damage: 20
       range: 4
       upgradeCost: 4
       upgradeTime: 0
-      towerPrefab: {fileID: 7291028237268089429, guid: 42507131c70becc4cacbb8d9f036f0b6, type: 3}
+      towerPrefab: {fileID: 4616389479770313697, guid: 0c97c580767983244bc97e15dffca3a8, type: 3}
   - towerType: 1
     towers:
-    - towerName: CaptapultTowerLv2
-      level: 0
-      damage: 0
-      range: 0
-      upgradeCost: 0
+    - towerName: CapacultLv1
+      level: 1
+      damage: 20
+      range: 4
+      upgradeCost: 1
       upgradeTime: 0
-      towerPrefab: {fileID: 7593083614979415019, guid: 28528b6123258e34ab87378291c51752, type: 3}
-    - towerName: 
-      level: 0
-      damage: 0
-      range: 0
-      upgradeCost: 0
+      towerPrefab: {fileID: 4066671993709056819, guid: c83e23f21897a3941bcac4fb232fe1fb, type: 3}
+    - towerName: CapacultLv2
+      level: 2
+      damage: 20
+      range: 4
+      upgradeCost: 2
       upgradeTime: 0
-      towerPrefab: {fileID: 0}
-    - towerName: 
-      level: 0
-      damage: 0
-      range: 0
-      upgradeCost: 0
+      towerPrefab: {fileID: 1629234136181799852, guid: ac312338a86a4a84fab98452634c764c, type: 3}
+    - towerName: CapacultLv3
+      level: 3
+      damage: 20
+      range: 4
+      upgradeCost: 3
       upgradeTime: 0
-      towerPrefab: {fileID: 0}
-    - towerName: 
-      level: 0
-      damage: 0
-      range: 0
-      upgradeCost: 0
+      towerPrefab: {fileID: 8584263481754404205, guid: 0f6abb38c13d6624080d14ce6a74c319, type: 3}
+    - towerName: CapacultLv4
+      level: 4
+      damage: 20
+      range: 4
+      upgradeCost: 4
       upgradeTime: 0
-      towerPrefab: {fileID: 0}
+      towerPrefab: {fileID: 2961389605694458668, guid: dab923bae9c83604d8e09738a91f1710, type: 3}
   - towerType: 2
     towers:
-    - towerName: CannonTowerLv2
-      level: 0
-      damage: 0
-      range: 0
-      upgradeCost: 0
+    - towerName: CannonLv1
+      level: 1
+      damage: 20
+      range: 4
+      upgradeCost: 1
       upgradeTime: 0
-      towerPrefab: {fileID: 1624913172428766467, guid: 5315515707a483c4fb49594be49d9d6a, type: 3}
-    - towerName: 
-      level: 0
-      damage: 0
-      range: 0
-      upgradeCost: 0
+      towerPrefab: {fileID: 4032225859974289787, guid: 298243ec28af88f4390f6bfdb3c90f01, type: 3}
+    - towerName: CannonLv2
+      level: 2
+      damage: 20
+      range: 4
+      upgradeCost: 2
       upgradeTime: 0
-      towerPrefab: {fileID: 0}
-    - towerName: 
-      level: 0
-      damage: 0
-      range: 0
-      upgradeCost: 0
+      towerPrefab: {fileID: 6636898836108446559, guid: 435e282665b45994294df5dd6128701d, type: 3}
+    - towerName: CannonLv3
+      level: 3
+      damage: 20
+      range: 4
+      upgradeCost: 3
       upgradeTime: 0
-      towerPrefab: {fileID: 0}
-    - towerName: 
-      level: 0
-      damage: 0
-      range: 0
-      upgradeCost: 0
+      towerPrefab: {fileID: 7065062821827398357, guid: bc0ad43e180e3224498df7f48817c644, type: 3}
+    - towerName: CannonLv4
+      level: 4
+      damage: 20
+      range: 4
+      upgradeCost: 4
       upgradeTime: 0
-      towerPrefab: {fileID: 0}
+      towerPrefab: {fileID: 5161584631722160277, guid: a2fd90b17869a4848accff0ae20f68dc, type: 3}
   - towerType: 3
     towers:
-    - towerName: CrossbowTowerLv2
-      level: 0
-      damage: 0
-      range: 0
-      upgradeCost: 0
+    - towerName: CrossbowLv1
+      level: 1
+      damage: 20
+      range: 4
+      upgradeCost: 1
       upgradeTime: 0
-      towerPrefab: {fileID: 6027744938266538894, guid: 1ba19a480cb6f724eb2ed4ccacb0904f, type: 3}
-    - towerName: 
-      level: 0
-      damage: 0
-      range: 0
-      upgradeCost: 0
+      towerPrefab: {fileID: 6642917566262898573, guid: 28702f0c748eb2941b9f9ea9da22f704, type: 3}
+    - towerName: CrossbowLv2
+      level: 2
+      damage: 20
+      range: 4
+      upgradeCost: 2
       upgradeTime: 0
-      towerPrefab: {fileID: 0}
-    - towerName: 
-      level: 0
-      damage: 0
-      range: 0
-      upgradeCost: 0
+      towerPrefab: {fileID: 5078531604972774972, guid: bd4cb88a2fdb8ff4d86faf6e30cb1763, type: 3}
+    - towerName: CapacultLv3
+      level: 3
+      damage: 20
+      range: 4
+      upgradeCost: 3
       upgradeTime: 0
-      towerPrefab: {fileID: 0}
-    - towerName: 
-      level: 0
-      damage: 0
-      range: 0
-      upgradeCost: 0
+      towerPrefab: {fileID: 8584263481754404205, guid: 0f6abb38c13d6624080d14ce6a74c319, type: 3}
+    - towerName: CapacultLv4
+      level: 4
+      damage: 20
+      range: 4
+      upgradeCost: 4
       upgradeTime: 0
-      towerPrefab: {fileID: 0}
+      towerPrefab: {fileID: 2961389605694458668, guid: dab923bae9c83604d8e09738a91f1710, type: 3}
