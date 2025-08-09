@@ -91,7 +91,7 @@ public class TowerAttack : MonoBehaviour
     {
         anim.SetAttack();
     }
-    private void SpawnBullet() // this is a animation event
+    public void SpawnBullet() // this is a animation event
     {
         if (targetMonster == null) return;
 

@@ -221,6 +221,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6755034641861142142, guid: 96546119bc72f184a8b09aaa9b8ab0ef, type: 3}
+      propertyPath: m_Name
+      value: barrel
+      objectReference: {fileID: 0}
     - target: {fileID: 8711665972959036240, guid: 96546119bc72f184a8b09aaa9b8ab0ef, type: 3}
       propertyPath: m_Name
       value: enemy-ufo-b-weapon
@@ -232,6 +236,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8711665972959036240, guid: 96546119bc72f184a8b09aaa9b8ab0ef, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3027790014008219647}
+    - targetCorrespondingSourceObject: {fileID: 8711665972959036240, guid: 96546119bc72f184a8b09aaa9b8ab0ef, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 143542640389786176}
   m_SourcePrefab: {fileID: 100100000, guid: 96546119bc72f184a8b09aaa9b8ab0ef, type: 3}
 --- !u!4 &5439011425636418830 stripped
 Transform:
@@ -269,6 +276,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &143542640389786176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8436170706910248665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e196392d736084b42b16b4c405ddd432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1029732210254687176
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -116,6 +116,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7490747576288260934}
     m_Modifications:
+    - target: {fileID: 2073902575620570000, guid: 16c1a777f2d7cbf48a3cfb6c38806343, type: 3}
+      propertyPath: m_Name
+      value: barrel
+      objectReference: {fileID: 0}
     - target: {fileID: 4792064597282929354, guid: 16c1a777f2d7cbf48a3cfb6c38806343, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -167,6 +171,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8112007745236036649, guid: 16c1a777f2d7cbf48a3cfb6c38806343, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3915252335356958972}
+    - targetCorrespondingSourceObject: {fileID: 8112007745236036649, guid: 16c1a777f2d7cbf48a3cfb6c38806343, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1083030705334608206}
   m_SourcePrefab: {fileID: 100100000, guid: 16c1a777f2d7cbf48a3cfb6c38806343, type: 3}
 --- !u!1 &1793672867795151977 stripped
 GameObject:
@@ -204,3 +211,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1083030705334608206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8408282693154700240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e196392d736084b42b16b4c405ddd432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
