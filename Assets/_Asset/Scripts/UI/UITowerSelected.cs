@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,6 +32,11 @@ public class UITowerSelected : MonoBehaviour
         towerUpdatebtn.onClick.AddListener(OnTowerUpdateBtn);
         Hide(this.gameObject);
         EventSystem.Subscribe<BaseTower>(EventName.SelectTower, OnSelectedTower);
+    }
+
+    private void OnDestroy()
+    {
+        EventSystem.Unsubscribe<BaseTower>(EventName.SelectTower, OnSelectedTower);
     }
 
     private void Update()
