@@ -109,6 +109,7 @@ public class TowerAttack : MonoBehaviour
 
         var baseMonster = targetMonster.GetComponent<BaseMonster>();
         Vector3 direction = (baseMonster.TargetPos.position - barrel.transform.position).normalized;
+        direction.y = 0f;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
         barrel.transform.rotation = Quaternion.Slerp(barrel.transform.rotation, lookRotation, Time.deltaTime * rotateSpeed);
     }

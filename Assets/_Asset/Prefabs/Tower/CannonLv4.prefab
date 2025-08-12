@@ -81,7 +81,7 @@ MonoBehaviour:
   rotateSpeed: 5
   baseTowerRange: 15
   upgradeCost: 0
-  barrel: {fileID: 1180558006960186916}
+  barrel: {fileID: 1053864413181953076}
   towerAttack: {fileID: 6941741170617058726}
 --- !u!114 &843701989707642635
 MonoBehaviour:
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4225509cc78486942bf7b005d25da5df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barrel: {fileID: 1180558006960186916}
+  barrel: {fileID: 1053864413181953076}
   bulletPrefab: {fileID: 1248053551054404107, guid: 2494b15331cc9734583a007be7471cb4, type: 3}
   timeBetweenBullets: 1
   damage: 0
@@ -471,11 +471,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e196392d736084b42b16b4c405ddd432, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1180558006960186916 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8400616239926456205, guid: 58cd645315e882e40b34cce443ad475a, type: 3}
-  m_PrefabInstance: {fileID: 7275236128807668137}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2460505630756721054 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5103612344541452343, guid: 58cd645315e882e40b34cce443ad475a, type: 3}
