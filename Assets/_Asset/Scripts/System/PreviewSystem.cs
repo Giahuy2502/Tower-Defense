@@ -19,6 +19,8 @@ public class PreviewSystem : MonoBehaviour
     {
         this.previewObject = previewObject;
         previewObjectInstance = Instantiate(previewObject);
+        var attack = previewObjectInstance.GetComponent<TowerAttack>();
+        if (attack) attack.enabled = false;
         var materials = previewObjectInstance.GetComponentsInChildren<MeshRenderer>();
         foreach (var material in materials)
         {
