@@ -8,6 +8,7 @@ public class UnlockTowerService : MonoBehaviour
     private readonly EconomySystem economySystem = new EconomySystem();
     private readonly TowerCost towerCost = new TowerCost();
     private readonly ITowerUnlockHandler handler;
+    private TowerUnlock unlockTower => TowerUnlock.instance;
     public UnlockTowerService(EconomySystem economySystem, TowerCost towerCost,ITowerUnlockHandler handler)
     {
         this.economySystem = economySystem;
@@ -23,9 +24,15 @@ public class UnlockTowerService : MonoBehaviour
             handler.OnUnlockFailed(type);
             return;
         }
-
+        unlockTower.UnlockTowerType(type);
         economySystem.IncreaseGem(-cost);
         handler.OnTowerUnlocked(type, index);
         EventSystem.Invoke(EventName.UpdateGemText);
+    }
+
+    public bool IsUnlockedTower(TowerType type)
+    {
+        var data = unlockTower.dataUnlockedMap[type];
+        return data.isUnlocked;
     }
 }

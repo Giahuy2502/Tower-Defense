@@ -42,8 +42,12 @@ public class UIShop : MonoBehaviour,ITowerUnlockHandler
 
     private void UnlockDefaultTower()
     {
-        var uiDefaultTower = products[0].GetComponent<UIProduct>();
-        uiDefaultTower.Unlock();
+        for (int i = 0; i < products.Count; i++)
+        {
+            var uiProduct = products[i].GetComponent<UIProduct>();
+            var type = this.data.Towers[i].towerType;
+            if(unlockService.IsUnlockedTower(type)) uiProduct.Unlock();
+        }
     }
 
     private void OnDestroy()
