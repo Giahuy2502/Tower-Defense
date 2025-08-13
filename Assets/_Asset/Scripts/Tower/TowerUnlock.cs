@@ -21,8 +21,15 @@ public class TowerUnlock : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
+    
 
     private void OnValidate()
+    {
+        Debug.Log("OnValidate");
+        RebuildUnlockedMap();
+    }
+
+    private void RebuildUnlockedMap()
     {
         dataUnlockedMap = new Dictionary<TowerType,TowerUnlockData>();
         foreach (TowerUnlockData data in data)
@@ -30,7 +37,6 @@ public class TowerUnlock : MonoBehaviour
             dataUnlockedMap[data.TowerType] = data;
         }
     }
-
     public void UnlockTowerType(TowerType towerType)
     {
         var data = dataUnlockedMap[towerType];
@@ -45,6 +51,16 @@ public class TowerUnlock : MonoBehaviour
             data[i].isUnlocked = false;
         }
     }
+    public TowerUnlockSaveData GetSaveData()
+    {
+        return new TowerUnlockSaveData { towers = new List<TowerUnlockData>(data) };
+    }
+
+    public void LoadFromData(TowerUnlockSaveData saveData)
+    {
+        data = new List<TowerUnlockData>(saveData.towers);
+        RebuildUnlockedMap();
+    }
 }
 
 [Serializable]
@@ -52,4 +68,9 @@ public class TowerUnlockData
 {
     public TowerType TowerType;
     public bool isUnlocked;
+}
+[Serializable]
+public class TowerUnlockSaveData
+{
+    public List<TowerUnlockData> towers;
 }

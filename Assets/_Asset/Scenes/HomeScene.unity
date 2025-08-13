@@ -3285,6 +3285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1102298937}
   - component: {fileID: 1102298936}
+  - component: {fileID: 1102298938}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3319,6 +3320,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1102298938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102298935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45b596f9be2dfa445ba9506096c5d37a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  economySystem: {fileID: 755323074}
 --- !u!1 &1110656694
 GameObject:
   m_ObjectHideFlags: 0
@@ -7026,6 +7040,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3137688126611175706, guid: 07194379b89568346bf021c43d325435, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 7445105140424118849, guid: 115b9b2bc48c7344e9739a8aea6bb6c5, type: 2}
     - target: {fileID: 6230158845513148454, guid: 07194379b89568346bf021c43d325435, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7066,6 +7084,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7100557754737436303, guid: 07194379b89568346bf021c43d325435, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -3698059327070550241, guid: 115b9b2bc48c7344e9739a8aea6bb6c5, type: 2}
     - target: {fileID: 8721992967786169372, guid: 07194379b89568346bf021c43d325435, type: 3}
       propertyPath: m_Name
       value: AudioManager

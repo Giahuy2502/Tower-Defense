@@ -79,8 +79,8 @@ public class EconomySystem : MonoBehaviour
         IncreaseExp(reward.rewardExp);
     }
 
-    // public void ResetGold()
-    // {
-    //     gold = 0;
-    // }
+    public void LoadData(int gem)
+    {
+        this.gem = gem;
+    }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using _Asset.Scripts.MyAsset;
@@ -7,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    private UserData userData => UserData.instance;
 
     private void Awake()
     {
@@ -18,6 +20,12 @@ public class GameManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
+    private async void Start()
+    {
+        await userData.LoadData();
+        EventSystem.Invoke(EventName.UpdateGemText);
+    }
+
 
     public void Play()
     {
@@ -41,8 +49,9 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void ExitGame()
+    public async void ExitGame()
     {
+        await userData.SaveData();
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
