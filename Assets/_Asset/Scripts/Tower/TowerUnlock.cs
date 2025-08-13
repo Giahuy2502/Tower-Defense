@@ -11,6 +11,12 @@ public class TowerUnlock : MonoBehaviour
     public Dictionary<TowerType,TowerUnlockData> dataUnlockedMap = new ();
     public static TowerUnlock instance;
 
+    public List<TowerUnlockData> Data
+    {
+        get => data;
+        set => data = value;
+    }
+
     private void Awake()
     {
         if (instance != null)
