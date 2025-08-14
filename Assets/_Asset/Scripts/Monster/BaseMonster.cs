@@ -46,6 +46,7 @@ public class BaseMonster : MonoBehaviour
         healthMonster.HealthMax = monsterData.monsterHealth;
         moveMonster.MoveSpeed = monsterData.monsterSpeed;
         rewardGold = monsterSpawnInfo.rewardGold;
+        moveMonster.DoMove();
     }
 
     protected virtual void Update()

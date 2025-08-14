@@ -30,17 +30,27 @@ public class MoveMonster : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    public void DoMove()
     {
         if (moveTween != null && moveTween.IsActive())
         {
             moveTween.Kill();
+            Debug.Log("MoveTween Killed");
         }
         transform.position = mapManager.StartPos.position;
         if (wayTransforms != null)
         {
             Move();
         }
+    }
+
+    private void OnDisable()
+    {
+        if (moveTween != null && moveTween.IsActive())
+        {
+            moveTween.Kill();
+        }
+        transform.position = mapManager.StartPos.position;
     }
 
     public void Move()
@@ -72,7 +82,6 @@ public class MoveMonster : MonoBehaviour
         mapManager.UpdateMonsterReachedCount(gameObject);
         EventSystem.Invoke(EventName.UpdateLivesTxt);
         MonsterPool.instance.ReturnObjectToPool(gameObject);
-        Debug.Log("Monster reached target");
     }
    
 
