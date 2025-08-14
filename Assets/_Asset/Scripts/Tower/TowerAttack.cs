@@ -95,7 +95,7 @@ public class TowerAttack : MonoBehaviour
     {
         if (targetMonster == null) return;
 
-        var newBullet = BulletPool.instance.GetObjectFromPool(TowerType.Runeblast, barrel.transform.position, barrel.transform.rotation);
+        var newBullet = BulletPool.instance.GetObjectFromPool(baseTower.TowerType, barrel.transform.position, barrel.transform.rotation);
         newBullet.transform.rotation = barrel.transform.rotation;
 
         var bullet = newBullet.GetComponent<BaseBullet>();

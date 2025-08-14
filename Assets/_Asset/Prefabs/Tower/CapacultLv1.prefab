@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barrel: {fileID: 4560974495084174404}
-  bulletPrefab: {fileID: 1248053551054404107, guid: 2494b15331cc9734583a007be7471cb4, type: 3}
+  bulletPrefab: {fileID: 2786795506121371069, guid: 4263ec6de25fadb4fb4b981e01460f94, type: 3}
   timeBetweenBullets: 1
   damage: 0
   range: 0
