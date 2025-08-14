@@ -119,7 +119,23 @@ MonoBehaviour:
           monsterSpeed: 0
           monsterPrefab: {fileID: 0}
         rewardGold: 0
-  - levelNumber: 0
+  - levelNumber: 2
+    rewards:
+      startingGold: 432
+      rewardGold: 0
+      rewardGems: 0
+      rewardExp: 0
+    enemyWaves:
+    - enemySpawns:
+      - spawnCount: 6
+        monsterData:
+          monsterType: 1
+          monsterHealth: 100
+          monsterDamage: 0
+          monsterSpeed: 1
+          monsterPrefab: {fileID: 1234111709830768784, guid: 588c56a3ddfb4bf41b5b66e3760f50db, type: 3}
+        rewardGold: 20
+  - levelNumber: 2
     rewards:
       startingGold: 0
       rewardGold: 0

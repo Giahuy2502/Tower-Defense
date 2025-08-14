@@ -49,6 +49,6 @@ public class UIWinPanel : MonoBehaviour
 
     private void OnNext()
     {
-        gameManager.RestartGame();
+        gameManager.NextLevel();
     }
 }

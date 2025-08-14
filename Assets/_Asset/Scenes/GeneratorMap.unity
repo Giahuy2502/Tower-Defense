@@ -433,7 +433,7 @@ Transform:
   m_GameObject: {fileID: 1885398145}
   serializedVersion: 2
   m_LocalRotation: {x: 0.32391736, y: 0, z: 0, w: 0.94608533}
-  m_LocalPosition: {x: -0.84, y: 8.19, z: -5.62}
+  m_LocalPosition: {x: 8, y: 8.19, z: -5.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -535,6 +535,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossbowLv2
       objectReference: {fileID: 0}
+    - target: {fileID: 5078531604972774972, guid: bd4cb88a2fdb8ff4d86faf6e30cb1763, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -591,6 +595,10 @@ PrefabInstance:
     - target: {fileID: 7155274906446370179, guid: bf59808ec7dc1324aaa5f4209bedb668, type: 3}
       propertyPath: m_Name
       value: RuneBlastLv3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155274906446370179, guid: bf59808ec7dc1324aaa5f4209bedb668, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -649,6 +657,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CannonLv1
       objectReference: {fileID: 0}
+    - target: {fileID: 4032225859974289787, guid: 298243ec28af88f4390f6bfdb3c90f01, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -705,6 +717,10 @@ PrefabInstance:
     - target: {fileID: 5434463609573943743, guid: d9daebd3dee5ad1418017f9c4a54746a, type: 3}
       propertyPath: m_Name
       value: CrossbowLv4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434463609573943743, guid: d9daebd3dee5ad1418017f9c4a54746a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -763,6 +779,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CannonLv3
       objectReference: {fileID: 0}
+    - target: {fileID: 7065062821827398357, guid: bc0ad43e180e3224498df7f48817c644, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -779,6 +799,10 @@ PrefabInstance:
     - target: {fileID: 4616389479770313697, guid: 0c97c580767983244bc97e15dffca3a8, type: 3}
       propertyPath: m_Name
       value: RuneBlastLv4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4616389479770313697, guid: 0c97c580767983244bc97e15dffca3a8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4851226780823297765, guid: 0c97c580767983244bc97e15dffca3a8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -877,6 +901,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CannonLv2
       objectReference: {fileID: 0}
+    - target: {fileID: 6636898836108446559, guid: 435e282665b45994294df5dd6128701d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -934,6 +962,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RuneBlastLv2
       objectReference: {fileID: 0}
+    - target: {fileID: 7092878893313118993, guid: efec2ff7e05e3824aa597e0992271395, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -950,6 +982,10 @@ PrefabInstance:
     - target: {fileID: 4066671993709056819, guid: c83e23f21897a3941bcac4fb232fe1fb, type: 3}
       propertyPath: m_Name
       value: CapacultLv1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066671993709056819, guid: c83e23f21897a3941bcac4fb232fe1fb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5304194455485821929, guid: c83e23f21897a3941bcac4fb232fe1fb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1008,6 +1044,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossbowLv3
       objectReference: {fileID: 0}
+    - target: {fileID: 5172620154224521619, guid: 906c7b21cdd642d4ba6605a8fbcdcd4d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8240765553144857141, guid: 906c7b21cdd642d4ba6605a8fbcdcd4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.646
@@ -1064,6 +1104,10 @@ PrefabInstance:
     - target: {fileID: 2529684217533861846, guid: bf300315d38dd49419fbfc755ede2a95, type: 3}
       propertyPath: m_Name
       value: RuneBlastLv1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529684217533861846, guid: bf300315d38dd49419fbfc755ede2a95, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2883537119435526798, guid: bf300315d38dd49419fbfc755ede2a95, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1162,6 +1206,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CapacultLv3
       objectReference: {fileID: 0}
+    - target: {fileID: 8584263481754404205, guid: 0f6abb38c13d6624080d14ce6a74c319, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1219,6 +1267,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CapacultLv4
       objectReference: {fileID: 0}
+    - target: {fileID: 2961389605694458668, guid: dab923bae9c83604d8e09738a91f1710, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1235,6 +1287,10 @@ PrefabInstance:
     - target: {fileID: 5161584631722160277, guid: a2fd90b17869a4848accff0ae20f68dc, type: 3}
       propertyPath: m_Name
       value: CannonLv4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5161584631722160277, guid: a2fd90b17869a4848accff0ae20f68dc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7687946120206743206, guid: a2fd90b17869a4848accff0ae20f68dc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1293,6 +1349,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossbowLv1
       objectReference: {fileID: 0}
+    - target: {fileID: 6642917566262898573, guid: 28702f0c748eb2941b9f9ea9da22f704, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7490747576288260934, guid: 28702f0c748eb2941b9f9ea9da22f704, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.468
@@ -1349,6 +1409,10 @@ PrefabInstance:
     - target: {fileID: 1629234136181799852, guid: ac312338a86a4a84fab98452634c764c, type: 3}
       propertyPath: m_Name
       value: CapacultLv2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1629234136181799852, guid: ac312338a86a4a84fab98452634c764c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4975465674017699033, guid: ac312338a86a4a84fab98452634c764c, type: 3}
       propertyPath: m_LocalPosition.x

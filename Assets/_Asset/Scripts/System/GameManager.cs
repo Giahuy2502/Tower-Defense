@@ -82,7 +82,9 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
-        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        EventSystem.Invoke(EventName.NextLevel);
+        OnLoading();
     }
 
     public void StartGame()

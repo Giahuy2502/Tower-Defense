@@ -12,7 +12,6 @@ public class MapManager : MonoBehaviour
     public static MapManager instance;
     [SerializeField] private int activeMonsterCount;
     [Header("Game Stats")] 
-    public int level;
     [SerializeField] private List<GameObject> activeMonsters;
     [SerializeField] private int monstersReachedCount;
     [SerializeField] private int defeatedMonsterCount;
