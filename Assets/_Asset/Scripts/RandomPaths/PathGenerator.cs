@@ -126,4 +126,12 @@ public class PathGenerator
         }
         return false;
     }
+
+    public bool IsRoadNode(Vector2Int cell)
+    {
+        var neighbourValue = GetCellNeighbourValue(cell.x, cell.y);
+        if (neighbourValue == 9 || neighbourValue == 6 || neighbourValue ==0)return false;
+        return true;
+
+    }
 }

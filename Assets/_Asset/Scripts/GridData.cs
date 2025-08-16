@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class GridData : MonoBehaviour
+public class GridData
 {
     private Dictionary<Vector3Int, PlacemntData> placedObjects = new();
 
@@ -44,7 +45,6 @@ public class GridData : MonoBehaviour
             if (placedObjects.ContainsKey(pos))
                 return false;
         }
-
         return true;
     }
 }

@@ -22,8 +22,9 @@ public class MoveMonster : MonoBehaviour
         set => moveSpeed = value;
     }
 
-    private void Awake()
+    private void OnEnable()
     {
+        wayTransforms.Clear();
         foreach (var point in mapManager.Waypoints)
         {
             wayTransforms.Add(point.transform.position);

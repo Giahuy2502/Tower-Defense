@@ -17,14 +17,16 @@ public class MapManager : MonoBehaviour
     [SerializeField] private int defeatedMonsterCount;
     [SerializeField] private int maxMonstersReached;
     [Header("AI Navigation")]
+    [SerializeField] private MapData mapData;
     [SerializeField] private Transform startPos;
     [SerializeField] private Transform endPos;
     [SerializeField] private List<GameObject> waypoints;
+    [SerializeField] private WayPointsManager wayPointsManager;
     [Header("Map")]
     [SerializeField] private Grid grid;
     [SerializeField] private List<MapTag> mapTags = new List<MapTag>();
     [SerializeField] private List<GameObject> mapObjects;
-    private GridData gridData = new();
+    private GridData gridData ;
     private WaveManager waveManager => WaveManager.instance;
     private GameManager gameManager => GameManager.instance;
     public Transform StartPos
@@ -81,21 +83,29 @@ public class MapManager : MonoBehaviour
         set => maxMonstersReached = value;
     }
 
+    public Grid Grid
+    {
+        get => grid;
+        set => grid = value;
+    }
+
     private void Awake()
     {
         if (instance != null)
         {
             Destroy(gameObject);
+            Debug.Log("---------Map Manager---------");
             return;
         }
         instance = this;
-        SetGridData();
     }
 
 
     private void Start()
     {
         SceneLoadingManager.OnLoadingComplete += gameManager.StartGame;
+        GetMap();
+        SetGridData();
     }
 
     private void OnDestroy()
@@ -146,6 +156,20 @@ public class MapManager : MonoBehaviour
             Vector2Int objSize = GetSize(obj);
             Vector3Int gridPos = GetCellPositionInt(grid,obj.transform.position);
             gridData.AddObjectAt(gridPos,objSize, obj);
+            // Debug.Log($"Set grid data for {obj.name} at {gridPos}");
         }
+    }
+
+    private void GetMap()
+    {
+        gridData = new GridData();
+        var currentLevel = LevelController.instance.CurrentLevel;
+        var map = mapData.Getmap(currentLevel-1);
+        Instantiate(map.mapPrefab,Vector3.zero, Quaternion.identity);
+        wayPointsManager = FindObjectOfType<WayPointsManager>();
+        waypoints.Clear();
+        waypoints = wayPointsManager.GetWayPoints();
+        startPos = waypoints[0].transform;
+        endPos = waypoints[waypoints.Count - 1].transform;
     }
 }

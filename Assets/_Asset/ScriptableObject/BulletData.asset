@@ -15,3 +15,9 @@ MonoBehaviour:
   bullets:
   - towerType: 0
     bulletPrefab: {fileID: 1248053551054404107, guid: 2494b15331cc9734583a007be7471cb4, type: 3}
+  - towerType: 1
+    bulletPrefab: {fileID: 2786795506121371069, guid: 4263ec6de25fadb4fb4b981e01460f94, type: 3}
+  - towerType: 2
+    bulletPrefab: {fileID: 4323987314855852756, guid: 976d9e2860901d3448948e541695703d, type: 3}
+  - towerType: 3
+    bulletPrefab: {fileID: 307435591436616586, guid: 08e7d51bfcffd2948b243f0dc4024db6, type: 3}

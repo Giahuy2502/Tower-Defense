@@ -18,6 +18,7 @@ public class GridManager : MonoBehaviour
     [SerializeField] private GameObject enviromentObject;
     [SerializeField] private  List<GridCellObject> pathCellObjects;
     [SerializeField] private List<GridCellObject> sceneryCellObjects;
+    [SerializeField] private WayPointsManager wayPointsManager;
     /// <summary>
     /// random path cho đến khi pathCell.Count >= min path Cell.
     /// </summary>
@@ -32,6 +33,7 @@ public class GridManager : MonoBehaviour
             while(pathGenerator.GenerateCrossRoads()); // tạo nhiều ngã 4 cho đến khi không tạo thêm được.
             pathSize = pathCells.Count;
         }
+        wayPointsManager.SetWayPoints(pathCells,pathGenerator);
         StartCoroutine(LayGridCells(pathCells));
     }
 
@@ -53,6 +55,7 @@ public class GridManager : MonoBehaviour
             Quaternion yRotation = Quaternion.Euler(0, yRotate, 0);
             var pathCellObj = Instantiate(cellPrefab, new Vector3(pathCell.x, 0f, pathCell.y),yRotation);
             pathCellObj.transform.parent = enviromentObject.transform;
+            pathCellObj.AddComponent<BoxCollider>();
             yield return new WaitForSeconds(0.05f);
         }
 
@@ -73,6 +76,7 @@ public class GridManager : MonoBehaviour
                     var pos = new Vector3(x, 0, y);
                     var sceneryCellObj= Instantiate(sceneryCellPrefab, pos, Quaternion.identity);
                     sceneryCellObj.transform.parent = enviromentObject.transform;
+                    sceneryCellObj.AddComponent<BoxCollider>();
                     yield return new WaitForSeconds(0.05f);
                 }
             }

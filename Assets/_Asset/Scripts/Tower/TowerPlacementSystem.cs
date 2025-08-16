@@ -12,7 +12,7 @@ public class TowerPlacementSystem : MonoBehaviour
     [SerializeField] private PlacementIndicator placementIndicator;
     [SerializeField] private Camera sceneCamera;
     [SerializeField] private LayerMask layerMask;
-    [SerializeField] private Grid grid;
+    
     [SerializeField] private GameObject gridVisualization;
     [SerializeField] private PreviewSystem previewSystem;
     [Header("Tower Data")]
@@ -20,6 +20,7 @@ public class TowerPlacementSystem : MonoBehaviour
     [SerializeField] private List<TowerInfo> towerInfos;
 
     private GridData gridData => MapManager.instance.GridData;
+    private Grid grid => MapManager.instance.Grid;
     private TowerInfo currentTowerInfo;
     public List<TowerInfo> TowerInfos
     {
@@ -69,7 +70,7 @@ public class TowerPlacementSystem : MonoBehaviour
         Show(gridVisualization);
         previewSystem.StartPreview(towerSpawned);
     }
-
+    
     private void MoveTowerObj()
     {
         var pos = GetCellPosition(GetMouseWorldPosition());
