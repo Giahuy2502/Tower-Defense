@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
     [SerializeField] private AudioSource musicSource,sfxSource;
+    [SerializeField] private AudioMixer myMixer;
     [SerializeField] private List<Sound> musicSounds = new(),sfxSounds = new ();
     Dictionary<string, AudioClip> musicSoundsMap = new(),sfxSoundsMap = new ();
     private void Awake()
@@ -62,11 +64,12 @@ public class AudioManager : MonoBehaviour
 
     public void SetMusicVolume(float volume)
     {
-        musicSource.volume = volume;
+        myMixer.SetFloat("music", Mathf.Log10(Mathf.Clamp(volume, 0.0001f, 1f)) * 20f);
     }
 
     public void SetSfxVolume(float volume)
     {
-        sfxSource.volume = volume;
+        myMixer.SetFloat("sfx", Mathf.Log10(Mathf.Clamp(volume, 0.0001f, 1f)) * 20f);
     }
+
 }
